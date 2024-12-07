@@ -6,7 +6,7 @@ using System.Collections;
 public class WebImageTest : MonoBehaviour
 {
     public Image uiImage; 
-    public string imageUrl = "https://example.com/your-image.png";
+    //public string imageUrl = "https://example.com/your-image.png";
 
     private void Start()
     {
@@ -16,11 +16,13 @@ public class WebImageTest : MonoBehaviour
 
     private IEnumerator LoadImageFromURL(string url)
     {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-        request.SetRequestHeader("Access-Control-Allow-Credentials", "true");
-        request.SetRequestHeader("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
-        request.SetRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        request.SetRequestHeader("Access-Control-Allow-Origin", "*");
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://img.nagradion.ru/images/normal/m/person980434955.jpg");
+        request.SetRequestHeader("mode", "no-cors");
+        // UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
+        // request.SetRequestHeader("Access-Control-Allow-Credentials", "true");
+        // request.SetRequestHeader("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
+        // request.SetRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        // request.SetRequestHeader("Access-Control-Allow-Origin", "*");
         yield return request.SendWebRequest();
         if (request.result != UnityWebRequest.Result.Success)
         {
