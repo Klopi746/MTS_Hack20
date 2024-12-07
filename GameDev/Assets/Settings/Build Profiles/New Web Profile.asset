@@ -18,8 +18,10 @@ MonoBehaviour:
   m_PlatformBuildProfile:
     rid: 6724568191721799683
   m_Scenes:
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Scenes/SampleScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/GameScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -519,7 +521,10 @@ MonoBehaviour:
     - line: '|   m_BuildTargetGroupLightmapSettings: []'
     - line: '|   m_BuildTargetGroupLoadStoreDebugModeSettings: []'
     - line: '|   m_BuildTargetNormalMapEncoding: []'
-    - line: '|   m_BuildTargetDefaultTextureCompressionFormat: []'
+    - line: '|   m_BuildTargetDefaultTextureCompressionFormat:'
+    - line: '|   - serializedVersion: 3'
+    - line: '|     m_BuildTarget: WebGL'
+    - line: '|     m_Formats: 05000000'
     - line: '|   playModeTestRunnerEnabled: 0'
     - line: '|   runPlayModeTestAsEditModeTest: 0'
     - line: '|   actionOnDotNetUnhandledException: 1'
@@ -820,7 +825,7 @@ MonoBehaviour:
     - line: '|   m_RenderingPath: 1'
     - line: '|   m_MobileRenderingPath: 1'
     - line: '|   metroPackageName: GameDev'
-    - line: '|   metroPackageVersion: '
+    - line: '|   metroPackageVersion: 1.0.0.0'
     - line: '|   metroCertificatePath: '
     - line: '|   metroCertificatePassword: '
     - line: '|   metroCertificateSubject: '
@@ -828,7 +833,7 @@ MonoBehaviour:
     - line: '|   metroCertificateNotAfter: 0000000000000000'
     - line: '|   metroApplicationDescription: GameDev'
     - line: '|   wsaImages: {}'
-    - line: '|   metroTileShortName: '
+    - line: '|   metroTileShortName: GameDev'
     - line: '|   metroTileShowName: 0'
     - line: '|   metroMediumTileShowName: 0'
     - line: '|   metroLargeTileShowName: 0'
