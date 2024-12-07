@@ -404,7 +404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiImage: {fileID: 160289197}
-  imageUrl: https://www.google.com/imgres?q=%D0%A2%D0%B8%D0%BC%D0%BE%D1%84%D0%B5%D0%B9%20%D0%BA%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2&imgurl=https%3A%2F%2Fimg.nagradion.ru%2Fimages%2Fnormal%2Fm%2Fperson980434955.jpg&imgrefurl=https%3A%2F%2Fffmo.ru%2Ftournament14973%2Fplayer%2F108977&docid=8DkAUEKFAv2xEM&tbnid=9R5W31a7cvKGiM&vet=12ahUKEwjfyJuVmZaKAxVnhP0HHei0D2cQM3oECGQQAA..i&w=352&h=600&hcb=2&itg=1&ved=2ahUKEwjfyJuVmZaKAxVnhP0HHei0D2cQM3oECGQQAA
 --- !u!4 &1246490022
 Transform:
   m_ObjectHideFlags: 0
