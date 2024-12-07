@@ -13,7 +13,7 @@ public class WebImageTest : MonoBehaviour
 
     IEnumerator GetTexture()
     {
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture("https://localhost/screen.png");
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture("https://img.nagradion.ru/images/normal/m/person724664858.jpg");
         www.SetRequestHeader("mode", "no-cors");
         www.SetRequestHeader("Access-Control-Allow-Credentials", "true");
         www.SetRequestHeader("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");

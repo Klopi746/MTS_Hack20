@@ -18,8 +18,6 @@ MonoBehaviour:
   m_PlatformBuildProfile:
     rid: 6724568191721799683
   m_Scenes:
-  - m_enabled: 0
-    m_path: Assets/Scenes/SampleScene.unity
   - m_enabled: 1
     m_path: Assets/Scenes/GameScene.unity
   m_ScriptingDefines: []

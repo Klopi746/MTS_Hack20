@@ -3,17 +3,20 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
 
-public class WebImageTest1 : MonoBehaviour
+public class ImageLoader : MonoBehaviour
 {
     public Image uiImage;
+    public string imageUrl;
+
     void Start()
     {
-        StartCoroutine(GetTexture());
+        string decodedUrl = DecodeUrl(imageUrl);
+        StartCoroutine(GetTexture(decodedUrl));
     }
 
-    IEnumerator GetTexture()
+    IEnumerator GetTexture(string url)
     {
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture("https://localhost/screen.png");
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -28,5 +31,16 @@ public class WebImageTest1 : MonoBehaviour
             new Vector2(0.5f, 0.5f));
             uiImage.sprite = sprite;
         }
+    }
+
+    string DecodeUrl(string url)
+    {
+        if (url.Contains("imgurl="))
+        {
+            string[] parts = url.Split(new string[] { "imgurl=" }, System.StringSplitOptions.None);
+            string encodedUrl = parts[1].Split('&')[0];
+            return UnityWebRequest.UnEscapeURL(encodedUrl);
+        }
+        return url;
     }
 }
