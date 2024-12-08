@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBlack: 0
   speed: 2
+  destroyParticles: {fileID: 117548, guid: 5f33830b4262c4f3f9f402cc37868a40, type: 3}
 --- !u!50 &2004876545446616734
 Rigidbody2D:
   serializedVersion: 5
