@@ -5,7 +5,7 @@ public class EnemyBall : MonoBehaviour
     public bool isBlack = false;
     PlayerColorSwitcher player;
     public float speed = 2f;
-
+    [SerializeField] private GameObject destroyParticles;
 
     private void Awake()
     {
@@ -32,6 +32,7 @@ public class EnemyBall : MonoBehaviour
                 FirstGameManager.instance.GameOver();
                 Destroy(this.gameObject);
             }
+            Instantiate(destroyParticles, transform.position, Quaternion.identity);
         }
     }
 }
