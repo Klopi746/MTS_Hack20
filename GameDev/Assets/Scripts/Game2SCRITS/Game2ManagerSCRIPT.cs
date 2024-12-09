@@ -7,6 +7,11 @@ public class Game2ManagerSCRIPT : MonoBehaviour
 
     public bool isGameStarted = false;
 
+    public void RunGame()
+    {
+        isGameStarted = true;
+    }
+
     void Awake()
     {
         Instance = this;

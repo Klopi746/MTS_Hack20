@@ -33,8 +33,9 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 
     IEnumerator PlayerHandler()
     {
+        while (Game2ManagerSCRIPT.Instance.isGameStarted == false) yield return null;
+
         yield return new WaitForSeconds(delayBeforeFirstMove);
-        Game2ManagerSCRIPT.Instance.isGameStarted = true;
 
         Transform lastTileTransform = Physics2D.Raycast(transform.position, Vector3.back * 10f).transform;
 
@@ -85,7 +86,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
     }
 
     Vector3 LEFTROTATION = new Vector3(0, 0, 90);
-    Vector3 RIGHTROTATION = new Vector3(0, 0, -90);
+    Vector3 RIGHTROTATION = new Vector3(0, 0, 90);
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !isMoving)
@@ -99,7 +100,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
             }
             else
             {
-                if (transform.eulerAngles != RIGHTROTATION) transform.eulerAngles += RIGHTROTATION;
+                if (transform.eulerAngles.Round(0) != RIGHTROTATION * 3) transform.eulerAngles += -RIGHTROTATION;
                 Debug.Log("Повернули направо");
             }
         }
