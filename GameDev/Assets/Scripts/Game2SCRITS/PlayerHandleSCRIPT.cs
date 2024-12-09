@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PlayerHandleSCRIPT : MonoBehaviour
 {
@@ -17,6 +17,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 
     bool isMoving = false;
 
+    public Vector2 pointerPos;
     int screenWidth = Screen.width;
 
     void Awake()
@@ -28,6 +29,8 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 
     void Start()
     {
+        InputAction pointAction = InputSystem.actions.FindAction("Point");
+        pointAction.performed += context => { pointerPos = context.ReadValue<Vector2>(); };
         StartCoroutine(PlayerHandler());
     }
 
@@ -56,7 +59,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 #if UNITY_EDITOR
             if (!canDie)
             {
-                if(hit)
+                if (hit)
                 {
                     hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
                     Destroy(lastTileTransform.gameObject, 0.1f);
@@ -87,13 +90,13 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 
     Vector3 LEFTROTATION = new Vector3(0, 0, 90);
     Vector3 RIGHTROTATION = new Vector3(0, 0, 90);
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && !isMoving)
-        {
-            Vector2 clickPosition = Input.mousePosition;
 
-            if (clickPosition.x < screenWidth / 2)
+    public void OnClickAction(InputAction.CallbackContext context)
+    {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (context.started && !isMoving)
+        {
+            if (pointerPos.x < screenWidth / 2)
             {
                 if (transform.eulerAngles != LEFTROTATION) transform.eulerAngles += LEFTROTATION;
                 Debug.Log("Повернули налево");
