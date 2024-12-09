@@ -9,18 +9,19 @@ public class FirstGameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel, pressToStartText;
     public bool isGameOver = false;
     [SerializeField] private BoxCollider2D playerCollider;
-    [SerializeField] private int score, record;
+    public int score, record;
     [SerializeField] private TextMeshProUGUI scoreText, recordText, afterGameScore;
-    
+    PlayerColorSwitcher player;
 
     private void Awake()
     {
         instance = this;
+        scoreText.text = "Счет: " + score.ToString("0");
+        player = FindAnyObjectByType<PlayerColorSwitcher>();
     }
 
     private void Start()
     {
-        Time.timeScale = 0;
         gameOverPanel.SetActive(false);
     }
 
@@ -35,7 +36,6 @@ public class FirstGameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Time.timeScale = 1;
             pressToStartText.SetActive(false);
         }
     }
@@ -46,10 +46,14 @@ public class FirstGameManager : MonoBehaviour
         isGameOver = true;
         gameOverPanel.SetActive(true);
         afterGameScore.text = "Ваш счет\n" + score.ToString("0");
+        SoundManager.Instance.PlaySFX("loss");
     }
 
     public void Restart()
     {
+        Debug.Log("Saving PlayerPrefs before restart");
+        PlayerPrefs.SetInt("PlayerColor", player.isBlack ? 1 : 0);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

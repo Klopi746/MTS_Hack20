@@ -32,6 +32,7 @@ public class EnemyBall : MonoBehaviour
                 FirstGameManager.instance.GameOver();
                 Destroy(this.gameObject);
             }
+            SoundManager.Instance.PlaySFX("enemyDestroy");
             Instantiate(destroyParticles, transform.position, Quaternion.identity);
         }
     }
