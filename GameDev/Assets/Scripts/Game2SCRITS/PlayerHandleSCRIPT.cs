@@ -5,9 +5,12 @@ using UnityEngine.EventSystems;
 
 public class PlayerHandleSCRIPT : MonoBehaviour
 {
+    public static PlayerHandleSCRIPT Instance;
+
     bool isAlive = true;
     public bool canDie = true;
     public float timeBetweenMove = 0.5f;
+    public float rateOfSaveTimeDecrease = 200f;
     public float speedOfMove = 0.01f;
     public float sizeOfMove = 0.02f;
     public float delayBeforeFirstMove = 2f;
@@ -15,13 +18,14 @@ public class PlayerHandleSCRIPT : MonoBehaviour
     Vector3 curPosition;
     Vector3 newPosition;
 
-    bool isMoving = false;
+    public bool isMoving = false;
 
     public Vector2 pointerPos;
     int screenWidth = Screen.width;
 
     void Awake()
     {
+        Instance = this;
 #if !UNITY_EDITOR
         isAlive = true;
 #endif
@@ -45,7 +49,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
         while (isAlive)
         {
             curPosition = transform.position;
-            newPosition = transform.position + transform.up;
+            newPosition = curPosition + transform.up;
 
             isMoving = true;
             while (transform.position != newPosition)
@@ -64,6 +68,8 @@ public class PlayerHandleSCRIPT : MonoBehaviour
                     hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
                     Destroy(lastTileTransform.gameObject, 0.1f);
                     TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(-1);
+                    Game2ManagerSCRIPT.Instance.AddScore(1);
+                    Game2ManagerSCRIPT.Instance.UpdateCoinsText();
                     lastTileTransform = hit.transform;
                 }
                 yield return new WaitForSeconds(timeBetweenMove);
@@ -75,26 +81,29 @@ public class PlayerHandleSCRIPT : MonoBehaviour
                 isAlive = false;
                 Debug.Log("You died!");
                 Game2ManagerSCRIPT.Instance.DieHandler();
+                StopCoroutine("PlayerHandler");
             }
             else
             {
                 hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
                 Destroy(lastTileTransform.gameObject, 0.1f);
                 TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(-1);
+                Game2ManagerSCRIPT.Instance.AddScore(1);
+                Game2ManagerSCRIPT.Instance.UpdateCoinsText();
                 lastTileTransform = hit.transform;
             }
 
             yield return new WaitForSeconds(timeBetweenMove);
+            timeBetweenMove -= Game2ManagerSCRIPT.Instance.GetScore() / rateOfSaveTimeDecrease;
         }
     }
 
     Vector3 LEFTROTATION = new Vector3(0, 0, 90);
     Vector3 RIGHTROTATION = new Vector3(0, 0, 90);
-
     public void OnClickAction(InputAction.CallbackContext context)
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        if (context.started && !isMoving)
+        if (context.performed && !isMoving)
         {
             if (pointerPos.x < screenWidth / 2)
             {
