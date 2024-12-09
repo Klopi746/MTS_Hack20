@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b657a3f2591b4b4db51606e4ceff6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameStarted: 0
 --- !u!4 &122508270
 Transform:
   m_ObjectHideFlags: 0
@@ -207,7 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 210509432591681509, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
-  pathConstLength: 10
+  PATHCONSTLENGTH: 10
+  pathCurLength: 0
 --- !u!1 &286802806
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,8 +311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5a47cae03e900478c38ce20d176274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenMove: 0.5
+  canDie: 0
+  timeBetweenMove: 0.2
   speedOfMove: 0.1
+  sizeOfMove: 0.1
   delayBeforeFirstMove: 2
 --- !u!1 &537087205
 GameObject:
@@ -656,6 +660,18 @@ PrefabInstance:
     - target: {fileID: 210509432591681509, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
       propertyPath: m_Name
       value: TilePREFAB
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016888325489547394, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016888325489547394, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016888325489547394, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5188679
       objectReference: {fileID: 0}
     - target: {fileID: 5271633600564105112, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
       propertyPath: m_LocalPosition.x
