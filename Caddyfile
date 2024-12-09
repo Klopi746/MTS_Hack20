@@ -1,0 +1,12 @@
+{$DOMAIN} {
+	handle_path /games* {
+		root * /srv/builds
+		file_server browse
+	}
+
+
+	# Обработка ошибок
+	handle_errors {
+		respond "{err.status_code} {err.status_text}"
+	}
+}
