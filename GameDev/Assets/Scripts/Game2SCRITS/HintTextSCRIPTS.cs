@@ -6,7 +6,7 @@ public class HintTextSCRIPTS : MonoBehaviour
 {
     public TextMeshProUGUI textObj;
 
-    public List<string> texts = new List<string>() 
+    public List<string> texts = new List<string>()
     {
         "Tap here!", // start text
         "<color=#ff0000ff>Tap</color>", // can't tap if moving
@@ -15,8 +15,8 @@ public class HintTextSCRIPTS : MonoBehaviour
 
     void Update()
     {
-        if(!Game2ManagerSCRIPT.Instance.isGameStarted) textObj.text = texts[0];
-        else if(PlayerHandleSCRIPT.Instance.isMoving) textObj.text = texts[1];
-        else if(!PlayerHandleSCRIPT.Instance.isMoving) textObj.text = texts[2];
+        if (!Game2ManagerSCRIPT.Instance.isGameStarted) textObj.text = texts[0];
+        else if (PlayerHandleSCRIPT.Instance.isMoving) textObj.text = texts[1];
+        else if (!PlayerHandleSCRIPT.Instance.isMoving) textObj.text = texts[2];
     }
 }
