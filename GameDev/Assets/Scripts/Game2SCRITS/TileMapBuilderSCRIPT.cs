@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class TileMapBuilderSCRIPT : MonoBehaviour
 {
+    public static TileMapBuilderSCRIPT Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     [SerializeField] GameObject tilePrefab;
 
-    public int pathConstLength = 10;
-
-    private Vector3 tileLastPos;
+    public int PATHCONSTLENGTH = 10;
 
     enum NextGenerationDirection
     {
@@ -18,13 +23,6 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
     const NextGenerationDirection fwd = NextGenerationDirection.forward;
     const NextGenerationDirection lft = NextGenerationDirection.left;
     const NextGenerationDirection rgt = NextGenerationDirection.right;
-
-    void GenerateTile(NextGenerationDirection direction = fwd)
-    {
-        Vector3 tilePos = tileLastPos + GetVector3FromDirection(direction);
-        Instantiate(tilePrefab, tilePos, Quaternion.identity);
-        tileLastPos = tilePos;
-    }
 
     Vector3 GetVector3FromDirection(NextGenerationDirection direction = fwd)
     {
@@ -41,23 +39,48 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
         }
     }
 
+    private Vector3 tileLastPos;
+    void GenerateTile(NextGenerationDirection direction = fwd)
+    {
+        Vector3 tilePos = tileLastPos + GetVector3FromDirection(direction);
+        RaycastHit2D hit = Physics2D.Raycast(tilePos + new Vector3(0, 0, -0.05f), Vector3.back * 1f);
+        if (!hit || hit.transform.gameObject.layer != 3) // Ground
+        {
+            Instantiate(tilePrefab, tilePos, Quaternion.identity);
+            tileLastPos = tilePos;
+        }
+    }
+
+    public int pathCurLength;
+    public void ChangePathCurLengthBy(int value = -1)
+    {
+        pathCurLength += value;
+    }
+    void HandlePath()
+    {
+        if (pathCurLength < PATHCONSTLENGTH)
+        {
+            NextGenerationDirection dirFromRandom = (NextGenerationDirection)Random.Range(0, 3);
+            GenerateTile(dirFromRandom);
+            pathCurLength += 1;
+        }
+    }
+
     void Start()
     {
+        pathCurLength = PATHCONSTLENGTH;
+
         tileLastPos = transform.position;
 
-        for (int i = 0; i < pathConstLength; i++)
+        for (int i = 0; i < PATHCONSTLENGTH; i++)
         {
             GenerateTile();
         }
+
     }
 
     void Update()
     {
-
-    }
-
-    void HandlePath()
-    {
-
+        if (Game2ManagerSCRIPT.Instance.isGameStarted) HandlePath();
     }
 }
