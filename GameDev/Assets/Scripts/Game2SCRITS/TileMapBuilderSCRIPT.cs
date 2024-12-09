@@ -1,3 +1,4 @@
+using System.CodeDom.Compiler;
 using UnityEngine;
 
 public class TileMapBuilderSCRIPT : MonoBehaviour
@@ -40,15 +41,21 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
     }
 
     private Vector3 tileLastPos;
-    void GenerateTile(NextGenerationDirection direction = fwd)
+    bool GenerateTile(NextGenerationDirection direction = fwd)
     {
+        bool isGenerated = false;
+
         Vector3 tilePos = tileLastPos + GetVector3FromDirection(direction);
         RaycastHit2D hit = Physics2D.Raycast(tilePos + new Vector3(0, 0, -0.05f), Vector3.back * 1f);
         if (!hit || hit.transform.gameObject.layer != 3) // Ground
         {
             Instantiate(tilePrefab, tilePos, Quaternion.identity);
             tileLastPos = tilePos;
+            isGenerated = true;
+            return isGenerated;
         }
+        isGenerated = false;
+        return isGenerated;
     }
 
     public int pathCurLength;
@@ -61,8 +68,7 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
         if (pathCurLength < PATHCONSTLENGTH)
         {
             NextGenerationDirection dirFromRandom = (NextGenerationDirection)Random.Range(0, 3);
-            GenerateTile(dirFromRandom);
-            pathCurLength += 1;
+            if (GenerateTile(dirFromRandom)) pathCurLength += 1;
         }
     }
 
