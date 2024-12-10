@@ -15,6 +15,7 @@ public class Game2ManagerSCRIPT : MonoBehaviour
 
     public bool isGameStarted = false;
 
+
     public int tilesPainted = 0;
     public int GetScore()
     {
@@ -30,11 +31,14 @@ public class Game2ManagerSCRIPT : MonoBehaviour
         coinsTextObj.text = ($"Painted: {tilesPainted}");
     }
 
+
     public void RunGame()
     {
         isGameStarted = true;
     }
 
+    public int tilesUnPainted = 0;
+    public int STOPTILEGENERATIONAFTERPATHLENGTHLESSTHAN = 5;
     public Button endGameButton;
     public TextMeshProUGUI endGameText;
     public string endText = "Earned 0 MtsCoins";
@@ -54,6 +58,8 @@ public class Game2ManagerSCRIPT : MonoBehaviour
         endGameButton.interactable = true;
         endGameText.text += "\n Tap to play again...";
     }
+
+
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -150,6 +150,8 @@ MonoBehaviour:
   isGameStarted: 0
   tilesPainted: 0
   coinsTextObj: {fileID: 1931324839}
+  tilesUnPainted: 0
+  STOPTILEGENERATIONAFTERPATHLENGTHLESSTHAN: 5
   endGameButton: {fileID: 1045678655}
   endGameText: {fileID: 181538264}
   endText: Earned 0 MtsCoins
@@ -351,8 +353,6 @@ MonoBehaviour:
   tilePrefab: {fileID: 210509432591681509, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
   PATHCONSTLENGTH: 10
   tilesSpawned: 0
-  pathCurLength: 0
-  canSpawn: 1
   pathStartLength: 6
 --- !u!1 &286802806
 GameObject:

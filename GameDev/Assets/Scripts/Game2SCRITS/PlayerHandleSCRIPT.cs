@@ -66,11 +66,13 @@ public class PlayerHandleSCRIPT : MonoBehaviour
                 if (hit)
                 {
                     hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
-                    Destroy(lastTileTransform.gameObject, 0.1f);
+                    lastTileTransform.GetComponent<TileSCRIPT>().Die();
+
                     TileMapBuilderSCRIPT.Instance.ChangeTilesSpawnedBy(-1);
-                    TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(1);
+
                     Game2ManagerSCRIPT.Instance.AddScore(1);
                     Game2ManagerSCRIPT.Instance.UpdateCoinsText();
+
                     lastTileTransform = hit.transform;
                 }
                 yield return new WaitForSeconds(timeBetweenMove);
@@ -87,11 +89,13 @@ public class PlayerHandleSCRIPT : MonoBehaviour
             else
             {
                 hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
-                Destroy(lastTileTransform.gameObject, 0.1f);
+                lastTileTransform.GetComponent<TileSCRIPT>().Die();
+
                 TileMapBuilderSCRIPT.Instance.ChangeTilesSpawnedBy(-1);
-                TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(1);
+
                 Game2ManagerSCRIPT.Instance.AddScore(1);
                 Game2ManagerSCRIPT.Instance.UpdateCoinsText();
+
                 lastTileTransform = hit.transform;
             }
 

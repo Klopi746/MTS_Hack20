@@ -64,18 +64,16 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
     {
         tilesSpawned += value;
     }
-    public int pathCurLength;
-    public void ChangePathCurLengthBy(int value = 1)
-    {
-        pathCurLength += value;
-    }
-    public bool canSpawn = true;
     void HandlePath()
     {
-        if (canSpawn && tilesSpawned <= PATHCONSTLENGTH)
+        if (PATHCONSTLENGTH - Game2ManagerSCRIPT.Instance.tilesUnPainted < Game2ManagerSCRIPT.Instance.STOPTILEGENERATIONAFTERPATHLENGTHLESSTHAN)
+        {
+            return;
+        }
+        if (tilesSpawned <= PATHCONSTLENGTH)
         {
             NextGenerationDirection dirFromRandom = (NextGenerationDirection)Random.Range(0, 3);
-            if (GenerateTile(dirFromRandom)) {tilesSpawned += 1; pathCurLength -= 1;}
+            if (GenerateTile(dirFromRandom)) tilesSpawned += 1;
         }
     }
 
@@ -83,7 +81,6 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
     void Start()
     {
         tilesSpawned = pathStartLength;
-        pathCurLength = pathStartLength;
 
         tileLastPos = transform.position;
 
