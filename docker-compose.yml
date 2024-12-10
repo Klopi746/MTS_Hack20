@@ -1,4 +1,16 @@
 services:
+  proxy:
+    image: caddy:2-alpine
+    restart: always
+    cap_add: [ NET_ADMIN ]
+    ports: [ 80:80, 443:443 ]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./tempbuilds:/srv/builds
+      - caddy_data:/data
+      - caddy_config:/config
+    env_file: [ .env ]
+
   backend:
     container_name: backend
     restart: unless-stopped
@@ -10,8 +22,8 @@ services:
       - postgres
     volumes:
       - ./logs:/app/logs
-    expose:
-      - 8000
+    ports:
+      - 8000:8000
 
   postgres:
     container_name: postgres
@@ -30,5 +42,8 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - mongo-data:/data/db
-      - ./create_local_user.js:/docker-entrypoint-initdb.d/create_local_user.js
+      - ./mongo-data:/data/db
+
+volumes:
+  caddy_data:
+  caddy_config:
