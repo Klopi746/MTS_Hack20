@@ -46,6 +46,13 @@ class MongoConfig(BaseSettings):
     password: str
     db_name: str
 
+    @computed_field
+    @property
+    def db_url(self) -> str:
+        return f'{self.driver}://{self.host}:{self.port}/'
+
+    model_config = SettingsConfigDict(env_prefix='MONGO_', extra="allow")
+
 
 app_config = BackendConfig(_env_file='../.env')
 
@@ -53,5 +60,6 @@ postgres_config = PostgresConfig(_env_file='../.env')
 
 # redis_config = RedisConfig()
 #
-# mongo_config = MongoConfig()
+mongo_config = MongoConfig()
 
+print(mongo_config.db_url)
