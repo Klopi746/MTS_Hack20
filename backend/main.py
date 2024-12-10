@@ -10,7 +10,7 @@ from src.shared.configs import app_config
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(_: FastAPI):
     await PostgresContext.check_connection()
     await MongoContext.check_connection()
     yield
