@@ -13,9 +13,8 @@ public class BallSpawner : MonoBehaviour
 
     private float currentSpawnInterval;
     private float enemySpeed = 2f;
-    private bool isGameStarted = false; // Флаг для начала игры
+    private bool isGameStarted = false; 
 
-    // Ссылка на GameManager, чтобы проверять isGameOver
     public FirstGameManager gameManager;
 
     private void Start()
@@ -25,7 +24,7 @@ public class BallSpawner : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем начало игры
+
         if (!isGameStarted && Input.GetMouseButtonDown(0))
         {
             isGameStarted = true;
@@ -43,24 +42,21 @@ public class BallSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (FirstGameManager.instance.isGameOver) return; // Если игра окончена, прекращаем спаун
+        if (FirstGameManager.instance.isGameOver) return;
 
         GameObject selectedEnemy = Random.value > 0.5f ? enemyBallType1 : enemyBallType2;
         Transform selectedSpawnPoint = Random.value > 0.5f ? spawnPoint1 : spawnPoint2;
         GameObject enemy = Instantiate(selectedEnemy, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
 
-        // Задаем скорость врага
         EnemyBall enemyBallScript = enemy.GetComponent<EnemyBall>();
         if (enemyBallScript != null)
         {
             enemyBallScript.speed = enemySpeed;
         }
 
-        // Обновляем интервал и скорость
         currentSpawnInterval = Mathf.Max(currentSpawnInterval - spawnIntervalDecreaseRate, minSpawnInterval);
         enemySpeed += speedIncreaseRate;
 
-        // Вызываем следующий спаун
         Invoke("SpawnEnemy", currentSpawnInterval);
     }
 }
