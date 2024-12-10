@@ -227,7 +227,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Earned 0 MtsCoins
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &181538265
@@ -350,7 +350,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 210509432591681509, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
   PATHCONSTLENGTH: 10
+  tilesSpawned: 0
   pathCurLength: 0
+  canSpawn: 1
+  pathStartLength: 6
 --- !u!1 &286802806
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDie: 1
-  timeBetweenMove: 0.2
+  timeBetweenMove: 0.4
   rateOfSaveTimeDecrease: 10000
   speedOfMove: 0.01
   sizeOfMove: 0.02
@@ -977,8 +980,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press ME to Play!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
+  m_sharedMaterial: {fileID: -1192667979223887507, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1326,8 +1329,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap here!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
+  m_sharedMaterial: {fileID: -1192667979223887507, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1632,8 +1635,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Painted: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
+  m_sharedMaterial: {fileID: -1192667979223887507, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1769,8 +1772,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap here!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
+  m_sharedMaterial: {fileID: -1192667979223887507, guid: 304d5ac1b148e6441a1f34221fc2bbda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
