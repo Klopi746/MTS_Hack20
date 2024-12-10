@@ -147,3 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a70d5802f144d24fbeda37843c88f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyParticles: {fileID: 117548, guid: 2a255052e3619f940a7d2fcdba73399c, type: 3}
+  tileSmoothDieSpeed: 1
