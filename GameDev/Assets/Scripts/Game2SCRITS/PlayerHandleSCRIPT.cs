@@ -40,10 +40,13 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 
         transform.rotation = Quaternion.identity;
 
+        startTimeBetweenMove = timeBetweenMove;
         StartCoroutine(PlayerHandler());
     }
 
     public bool canRotate = false;
+    private float startTimeBetweenMove;
+    public int difficulty = 10;
     IEnumerator PlayerHandler()
     {
         while (Game2ManagerSCRIPT.Instance.isGameStarted == false) yield return null;
@@ -63,7 +66,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
             while (transform.position != newPosition)
             {
                 transform.position = (transform.position + transform.up * sizeOfMove).Round(2);
-                yield return new WaitForSeconds(speedOfMove);
+                yield return new WaitForSeconds(speedOfMove - Game2ManagerSCRIPT.Instance.GetScore() * (difficulty / 100000));
             }
             isMoving = false;
 
@@ -132,6 +135,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!canRotate) return;
+        if (isRotating) return;
         if (context.performed && !isMoving)
         {
             isRotating = true;
