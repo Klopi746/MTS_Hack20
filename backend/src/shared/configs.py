@@ -42,8 +42,6 @@ class MongoConfig(BaseSettings):
     driver: str
     host: str
     port: int | None = Field(default=None)
-    username: str
-    password: str
     db_name: str
 
     @computed_field

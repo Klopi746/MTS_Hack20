@@ -70,3 +70,5 @@ GameDev/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 GameDev/[Aa]ssets/[Ss]treamingAssets/aa.meta
 GameDev/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+.env
