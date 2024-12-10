@@ -42,5 +42,6 @@ async def delete_config(config_id: int):
 
 @router.patch('/{config_id}')
 async def update_config(config_id: str, data: GameConfigUpdate):
-    pass
+    await GameConfigsRepository().update_by_id(_id=config_id, data=data)
+
 
