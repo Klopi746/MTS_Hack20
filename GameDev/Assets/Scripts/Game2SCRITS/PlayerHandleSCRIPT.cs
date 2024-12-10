@@ -67,7 +67,8 @@ public class PlayerHandleSCRIPT : MonoBehaviour
                 {
                     hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
                     Destroy(lastTileTransform.gameObject, 0.1f);
-                    TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(-1);
+                    TileMapBuilderSCRIPT.Instance.ChangeTilesSpawnedBy(-1);
+                    TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(1);
                     Game2ManagerSCRIPT.Instance.AddScore(1);
                     Game2ManagerSCRIPT.Instance.UpdateCoinsText();
                     lastTileTransform = hit.transform;
@@ -87,7 +88,8 @@ public class PlayerHandleSCRIPT : MonoBehaviour
             {
                 hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
                 Destroy(lastTileTransform.gameObject, 0.1f);
-                TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(-1);
+                TileMapBuilderSCRIPT.Instance.ChangeTilesSpawnedBy(-1);
+                TileMapBuilderSCRIPT.Instance.ChangePathCurLengthBy(1);
                 Game2ManagerSCRIPT.Instance.AddScore(1);
                 Game2ManagerSCRIPT.Instance.UpdateCoinsText();
                 lastTileTransform = hit.transform;

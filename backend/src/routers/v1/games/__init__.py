@@ -1,0 +1,1 @@
+from src.routers.v1.games.router import router

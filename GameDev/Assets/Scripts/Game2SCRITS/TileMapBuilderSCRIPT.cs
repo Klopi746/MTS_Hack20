@@ -1,4 +1,5 @@
 using System.CodeDom.Compiler;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class TileMapBuilderSCRIPT : MonoBehaviour
@@ -58,31 +59,38 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
         return isGenerated;
     }
 
+    public int tilesSpawned;
+    public void ChangeTilesSpawnedBy(int value = -1)
+    {
+        tilesSpawned += value;
+    }
     public int pathCurLength;
-    public void ChangePathCurLengthBy(int value = -1)
+    public void ChangePathCurLengthBy(int value = 1)
     {
         pathCurLength += value;
     }
+    public bool canSpawn = true;
     void HandlePath()
     {
-        if (pathCurLength < PATHCONSTLENGTH)
+        if (canSpawn && tilesSpawned <= PATHCONSTLENGTH)
         {
             NextGenerationDirection dirFromRandom = (NextGenerationDirection)Random.Range(0, 3);
-            if (GenerateTile(dirFromRandom)) pathCurLength += 1;
+            if (GenerateTile(dirFromRandom)) {tilesSpawned += 1; pathCurLength -= 1;}
         }
     }
 
+    public int pathStartLength = 6;
     void Start()
     {
-        pathCurLength = PATHCONSTLENGTH;
+        tilesSpawned = pathStartLength;
+        pathCurLength = pathStartLength;
 
         tileLastPos = transform.position;
 
-        for (int i = 0; i < PATHCONSTLENGTH; i++)
+        for (int i = 0; i < pathStartLength; i++)
         {
             GenerateTile();
         }
-
     }
 
     void Update()

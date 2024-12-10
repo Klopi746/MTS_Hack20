@@ -1,6 +1,6 @@
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession, AsyncEngine
-from backend.src.database.postgres.cruds.base import BasePostgresCRUD
+from src.database.postgres.cruds.base import BasePostgresCRUD
 from src.shared.configs import postgres_config as config
 from sqlalchemy.exc import SQLAlchemyError
 
