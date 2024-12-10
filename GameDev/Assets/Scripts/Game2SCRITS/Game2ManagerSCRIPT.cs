@@ -15,6 +15,12 @@ public class Game2ManagerSCRIPT : MonoBehaviour
 
     public bool isGameStarted = false;
 
+    void Start()
+    {
+        tilesPainted = 0;
+        tilesUnPainted = 0;
+    }
+
 
     public int tilesPainted = 0;
     public int GetScore()
@@ -36,6 +42,7 @@ public class Game2ManagerSCRIPT : MonoBehaviour
     {
         isGameStarted = true;
     }
+
 
     public int tilesUnPainted = 0;
     public int STOPTILEGENERATIONAFTERPATHLENGTHLESSTHAN = 5;

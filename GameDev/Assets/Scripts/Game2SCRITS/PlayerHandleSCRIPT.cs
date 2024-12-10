@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using System;
 
 public class PlayerHandleSCRIPT : MonoBehaviour
 {
@@ -35,9 +36,13 @@ public class PlayerHandleSCRIPT : MonoBehaviour
     {
         InputAction pointAction = InputSystem.actions.FindAction("Point");
         pointAction.performed += context => { pointerPos = context.ReadValue<Vector2>(); };
+
+        transform.rotation = Quaternion.identity;
+
         StartCoroutine(PlayerHandler());
     }
 
+    public bool canRotate = false;
     IEnumerator PlayerHandler()
     {
         while (Game2ManagerSCRIPT.Instance.isGameStarted == false) yield return null;
@@ -45,6 +50,8 @@ public class PlayerHandleSCRIPT : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeFirstMove);
 
         Transform lastTileTransform = Physics2D.Raycast(transform.position, Vector3.back * 10f).transform;
+
+        canRotate = true;
 
         while (isAlive)
         {
@@ -101,26 +108,67 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenMove);
             timeBetweenMove -= Game2ManagerSCRIPT.Instance.GetScore() / rateOfSaveTimeDecrease;
+
+            while (isRotating)
+            {
+                yield return null;
+            }
         }
     }
 
     Vector3 LEFTROTATION = new Vector3(0, 0, 90);
     Vector3 RIGHTROTATION = new Vector3(0, 0, 90);
+    public float sizeOfCamRotaion = 0.01f;
+    public float slowlinessOfCamRotation = 0.01f;
+    public bool isRotating = false;
     public void OnClickAction(InputAction.CallbackContext context)
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (!canRotate) return;
         if (context.performed && !isMoving)
         {
+            isRotating = true;
+            StopCoroutine("RotateBy");
             if (pointerPos.x < screenWidth / 2)
             {
-                if (transform.eulerAngles != LEFTROTATION) transform.eulerAngles += LEFTROTATION;
-                Debug.Log("Повернули налево");
+                StartCoroutine(RotateBy(false));
             }
             else
             {
-                if (transform.eulerAngles.Round(0) != RIGHTROTATION * 3) transform.eulerAngles += -RIGHTROTATION;
-                Debug.Log("Повернули направо");
+                StartCoroutine(RotateBy(true));
             }
         }
+    }
+    IEnumerator RotateBy(bool rotatedir = true)
+    {
+        Vector3 endRotationVector;
+        float curRotation;
+        Vector3 curRotationVector;
+
+        if (!rotatedir) // LEFT
+        {
+            endRotationVector = transform.eulerAngles + LEFTROTATION;
+        }
+        else // RIGHT
+        {
+            endRotationVector = transform.eulerAngles - RIGHTROTATION;
+        }
+        curRotation = 0;
+        while (curRotation < 90)
+        {
+            curRotation += sizeOfCamRotaion;
+            curRotationVector = new(0, 0, sizeOfCamRotaion);
+            if (rotatedir)
+            {
+                transform.eulerAngles -= curRotationVector;
+            }
+            else
+            {
+                transform.eulerAngles += curRotationVector;
+            }
+            yield return new WaitForSeconds(slowlinessOfCamRotation);
+        }
+        transform.eulerAngles = endRotationVector;
+        isRotating = false;
     }
 }

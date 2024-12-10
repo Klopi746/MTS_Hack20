@@ -10,13 +10,14 @@ public class TileSCRIPT : MonoBehaviour
 
     IEnumerator DecreasePlayerPathIfBeForgotten()
     {
-        yield return new WaitForSeconds(TileMapBuilderSCRIPT.Instance.PATHCONSTLENGTH + 1f);
+        yield return new WaitForSeconds(TileMapBuilderSCRIPT.Instance.PATHCONSTLENGTH + 3f);
         Game2ManagerSCRIPT.Instance.tilesUnPainted += 1;
     }
 
     public void Die()
     {
         StopAllCoroutines();
+        StopCoroutine(DecreasePlayerPathIfBeForgotten());
         Destroy(transform.gameObject, 0.1f);
     }
 }

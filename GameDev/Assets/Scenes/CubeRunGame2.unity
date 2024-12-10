@@ -465,6 +465,10 @@ MonoBehaviour:
   delayBeforeFirstMove: 1
   isMoving: 0
   pointerPos: {x: 0, y: 0}
+  canRotate: 0
+  sizeOfCamRotaion: 1
+  slowlinessOfCamRotation: 0.005
+  isRotating: 0
 --- !u!114 &286802810
 MonoBehaviour:
   m_ObjectHideFlags: 0
