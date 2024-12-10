@@ -18,6 +18,7 @@ public class PlayerHandleSCRIPT : MonoBehaviour
 
     Vector3 curPosition;
     Vector3 newPosition;
+    [SerializeField] private GameObject makeGreyParticles;
 
     public bool isMoving = false;
 
@@ -73,6 +74,9 @@ public class PlayerHandleSCRIPT : MonoBehaviour
                 if (hit)
                 {
                     hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
+                    Instantiate(makeGreyParticles, transform.position, Quaternion.identity);
+                    SoundManager.Instance.PlaySFX("miniMagic");
+
                     lastTileTransform.GetComponent<TileSCRIPT>().Die();
 
                     TileMapBuilderSCRIPT.Instance.ChangeTilesSpawnedBy(-1);
@@ -96,6 +100,9 @@ public class PlayerHandleSCRIPT : MonoBehaviour
             else
             {
                 hit.transform.GetComponent<SpriteRenderer>().color = Color.grey;
+                Instantiate(makeGreyParticles, transform.position, Quaternion.identity);
+                SoundManager.Instance.PlaySFX("miniMagic");
+
                 lastTileTransform.GetComponent<TileSCRIPT>().Die();
 
                 TileMapBuilderSCRIPT.Instance.ChangeTilesSpawnedBy(-1);
