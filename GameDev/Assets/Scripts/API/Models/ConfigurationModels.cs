@@ -6,6 +6,9 @@ using UnityEngine;
 public class ConfigurationOut<Attributes>
 {
     public String id;
+    public String title;
+    public String game_type;
+    public bool active;
     public String created_at;
     public String updated_at;
     public Attributes configuration;
@@ -26,6 +29,8 @@ public class ConfigurationCreate<Attributes>
 [Serializable]
 public class ConfigurationUpdate<Attributes>
 {
+    public String title;
+    public String game_type;
     public Attributes configuration;
 
     public ConfigurationUpdate(Attributes configuration)
