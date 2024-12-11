@@ -25,5 +25,13 @@ class GameConfigsRepository:
     async def update_by_id(self, _id: str, data: GameConfigUpdate) -> None:
         await self.mongo_context.crud.update_object_by_id(_id, data.model_dump())
 
+    async def mark_as_active(self, _id: str) -> None:
+        pass
+
+    async def get_active(self, game_type: str) -> GameConfigOut:
+        configs = await self.mongo_context.crud.get_active(game_type)
+
+
+
 
 

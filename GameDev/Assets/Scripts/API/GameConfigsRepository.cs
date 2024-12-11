@@ -27,6 +27,10 @@ public class GameConfigsRepository: AbstractAPIRepository
         // onSuccessCallback return always null, i create response model later
         yield return PatchRequest(BASEURL + "/v1/games/configs/" + configId, data, onSuccessCallback, onErrorCallback);
     }
+
+    public IEnumerator GetConfig<Attributes>(string configId, Action<ConfigurationOut<Attributes>> onSuccessCallback, Action<String> onErrorCallback) {
+        yield return GetRequest(BASEURL + "/v1/games/configs/" + configId, onSuccessCallback, onErrorCallback);
+    }
 }
 
 
