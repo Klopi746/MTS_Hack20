@@ -19,9 +19,9 @@ public class BallsOfFateAttributesOut
     public string ballTwoEffectColor;
     public string backgroundMusic;
     public float speedOfGame;
+    public int difficulty;
 
-
-    public BallsOfFateAttributesOut(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame)
+    public BallsOfFateAttributesOut(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame, int difficulty)
 
     {
         this.backgroundSprite = backgroundSprite;
@@ -38,6 +38,7 @@ public class BallsOfFateAttributesOut
         this.ballTwoEffectColor = ballTwoEffectColor;
         this.backgroundMusic = backgroundMusic;
         this.speedOfGame = speedOfGame;
+        this.difficulty = difficulty;
     }
 }
 
@@ -59,8 +60,10 @@ public class BallsOfFateAttributesCreate
     public string ballTwoEffectColor;
     public string backgroundMusic;
     public float speedOfGame;
+    public int difficulty;
 
-    public BallsOfFateAttributesCreate(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame)
+
+    public BallsOfFateAttributesCreate(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame, int difficulty)
 
     {
         this.backgroundSprite = backgroundSprite;
@@ -77,6 +80,7 @@ public class BallsOfFateAttributesCreate
         this.ballTwoEffectColor = ballTwoEffectColor;
         this.backgroundMusic = backgroundMusic;
         this.speedOfGame = speedOfGame;
+        this.difficulty = difficulty;
     }
 }
 
@@ -98,8 +102,10 @@ public class BallsOfFateAttributesUpdate
     public string ballTwoEffectColor;
     public string backgroundMusic;
     public float speedOfGame;
+    public int difficulty;
 
-    public BallsOfFateAttributesUpdate(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame)
+
+    public BallsOfFateAttributesUpdate(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame, int difficulty)
 
     {
         this.backgroundSprite = backgroundSprite;
@@ -116,5 +122,6 @@ public class BallsOfFateAttributesUpdate
         this.ballTwoEffectColor = ballTwoEffectColor;
         this.backgroundMusic = backgroundMusic;
         this.speedOfGame = speedOfGame;
+        this.difficulty = difficulty;
     }
 }
