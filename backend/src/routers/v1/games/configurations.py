@@ -22,6 +22,12 @@ async def create_config(game_config: GameConfigCreate):
     return await GameConfigsRepository().create_config(game_config)
 
 
+@router.get('/active/{game_type}', response_model=GameConfigOut | None)
+async def get_active_game_config(game_type: str):
+    return await GameConfigsRepository().get_active(game_type=game_type)
+
+
+
 @router.get('/{config_id}', response_model=GameConfigOut)
 async def get_config(config_id: str):
     try:

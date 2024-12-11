@@ -28,8 +28,14 @@ class GameConfigsRepository:
     async def mark_as_active(self, _id: str) -> None:
         await self.mongo_context.crud.set_active(_id=_id)
 
-    async def get_active(self, game_type: str) -> GameConfigOut:
-        configs = await self.mongo_context.crud.get_active(game_type)
+    async def get_active(self, game_type: str) -> GameConfigOut | None:
+        config = await self.mongo_context.crud.get_active(game_type)
+        if not config:
+            return config
+
+        return GameConfigOut(**config)
+
+
 
 
 
