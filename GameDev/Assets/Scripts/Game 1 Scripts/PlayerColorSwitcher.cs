@@ -5,6 +5,8 @@ public class PlayerColorSwitcher : MonoBehaviour
     public SpriteRenderer spriteRenderer; 
     public bool isBlack = false;
     Animator anim;
+    public SpriteRenderer firstColor;
+    public SpriteRenderer secondColor;
 
 
     private void Awake()
@@ -28,7 +30,7 @@ public class PlayerColorSwitcher : MonoBehaviour
             anim.SetTrigger("Clicked");
 
             isBlack = !isBlack;
-            SetColor(isBlack ? Color.black : Color.white);
+            SetColor(isBlack ? firstColor.color : secondColor.color);
             PlayerPrefs.SetInt("PlayerColor", isBlack ? 1 : 0); 
         }
     }
