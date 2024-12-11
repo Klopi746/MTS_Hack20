@@ -1044,15 +1044,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[5]._key
-      value: platformColor1
+      value: platformColorFirst
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[6]._key
-      value: platformColor2
+      value: platformColorSecond;
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[7]._key
-      value: platformSprite
+      value: difficulty
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[0]._value
@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[7]._value
       value: 
-      objectReference: {fileID: 1930964226}
+      objectReference: {fileID: 1770711293}
     - target: {fileID: 5869210769365538201, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: SetDataSCRIPT
       value: 
@@ -1891,10 +1891,10 @@ MonoBehaviour:
   ReferenceResolution: {x: 1440, y: 1024}
   Mode: 1
   MatchWidthOrHeight: 0.5
---- !u!1 &1930964226 stripped
+--- !u!1 &1770711293 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3702954676081735407, guid: beb26bb8563664df393f437cf98ec6d1, type: 3}
-  m_PrefabInstance: {fileID: 8567964226474418422}
+  m_CorrespondingSourceObject: {fileID: 8804922948451742306, guid: 0ffe41fbd79de7b418dba14c88daa50e, type: 3}
+  m_PrefabInstance: {fileID: 340667401}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966490328
 GameObject:
