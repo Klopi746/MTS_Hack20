@@ -45,3 +45,8 @@ async def update_config(config_id: str, data: GameConfigUpdate):
     await GameConfigsRepository().update_by_id(_id=config_id, data=data)
 
 
+@router.post('/{config_id}/make-active')
+async def make_config_active(config_id: str):
+    await GameConfigsRepository().mark_as_active(_id=config_id)
+
+

@@ -13,7 +13,12 @@ class GameConfigsDRUD(BaseMongoCRUD):
 
     async def set_active(self, _id: str):
         result = await self.collection.update_one({'_id': ObjectId(_id)}, {'$set': {'active': True}})
-        return
-        await self.collection.update_many({}, {'$set': {'active': False}})
+
+        config = await self.collection.find_one({'_id': ObjectId(_id)})
+
+        if not config:
+            raise
+
+        await self.collection.update_many({'_id': {'$ne': ObjectId(_id)}, 'game_type': config['game_type']}, {'$set': {'active': False}})
 
 
