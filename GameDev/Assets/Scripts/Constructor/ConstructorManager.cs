@@ -13,7 +13,6 @@ public class ConstructorManager : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -27,33 +26,33 @@ public class ConstructorManager : MonoBehaviour
 
     private void SelectObject(GameObject newObject)
     {
-
+        // Восстановление прозрачности предыдущего объекта
         if (selectedObject != null)
         {
             SpriteRenderer previousRenderer = selectedObject.GetComponent<SpriteRenderer>();
             if (previousRenderer != null)
             {
                 Color color = previousRenderer.color;
-                color.a = 1f; 
+                color.a = 1f;
                 previousRenderer.color = color;
             }
         }
 
-
+        // Назначение нового выбранного объекта
         selectedObject = newObject;
         Debug.Log($"Выбран объект: {selectedObject.name}");
 
-
+        // Снижение прозрачности нового выбранного объекта
         SpriteRenderer currentRenderer = selectedObject.GetComponent<SpriteRenderer>();
         if (currentRenderer != null)
         {
             Color color = currentRenderer.color;
-            color.a = 0.6f; 
+            color.a = 0.6f;
             currentRenderer.color = color;
         }
     }
 
-    public void ChangeColor(string hexColor)
+    public void ChangeColor(string hexColor, ColorChangeButton buttonScript)
     {
         if (selectedObject != null)
         {
@@ -62,8 +61,21 @@ public class ConstructorManager : MonoBehaviour
                 SpriteRenderer spriteRenderer = selectedObject.GetComponent<SpriteRenderer>();
                 if (spriteRenderer != null)
                 {
-                    spriteRenderer.color = color;
-                    Debug.Log($"Цвет объекта {selectedObject.name} изменен на {color}");
+                    if (spriteRenderer.color == color)
+                    {
+                        // Сброс цвета
+                        spriteRenderer.color = originalColor;
+                        buttonScript.SetTransparency(1f); // Восстановить прозрачность кнопки
+                        Debug.Log($"Цвет объекта {selectedObject.name} сброшен на {originalColor}");
+                    }
+                    else
+                    {
+                        // Сохранение оригинального цвета и установка нового
+                        originalColor = spriteRenderer.color;
+                        spriteRenderer.color = color;
+                        buttonScript.SetTransparency(0.6f); // Уменьшить прозрачность кнопки
+                        Debug.Log($"Цвет объекта {selectedObject.name} изменен на {color}");
+                    }
                 }
                 else
                 {
@@ -78,6 +90,30 @@ public class ConstructorManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Объект для изменения цвета не выбран!");
+        }
+    }
+
+
+
+    private void SetButtonTransparency(Button button)
+    {
+        Image buttonImage = button.GetComponent<Image>();
+        if (buttonImage != null)
+        {
+            Color color = buttonImage.color;
+            color.a = 0.6f; // Уменьшение прозрачности на 40%
+            buttonImage.color = color;
+        }
+    }
+
+    private void ResetButtonTransparency(Button button)
+    {
+        Image buttonImage = button.GetComponent<Image>();
+        if (buttonImage != null)
+        {
+            Color color = buttonImage.color;
+            color.a = 1f; // Восстановление полной прозрачности
+            buttonImage.color = color;
         }
     }
 
