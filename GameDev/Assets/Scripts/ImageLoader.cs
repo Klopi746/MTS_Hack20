@@ -41,28 +41,4 @@ public static class ImageLoader
         }
         return url;
     }
-    static void AutoResizeImg(Component objSprite, Sprite sprite)
-    {
-        if (objSprite is SpriteRenderer componentSpriteRenderer)
-        {
-            Vector2 originalSize = componentSpriteRenderer.sprite.bounds.size;
-            Debug.Log(originalSize);
-            componentSpriteRenderer.sprite = sprite;
-            Vector2 newSize = componentSpriteRenderer.bounds.size;
-            Debug.Log(newSize);
-            float scaleX = originalSize.x / newSize.x;
-            float scaleY = originalSize.y / newSize.y;
-            componentSpriteRenderer.transform.localScale = new Vector3(componentSpriteRenderer.transform.localScale.x *scaleX, componentSpriteRenderer.transform.localScale.y *scaleY, componentSpriteRenderer.transform.localScale.z);
-        }
-        else if (objSprite is Image componentImage)
-        {
-            Vector2 originalSize = componentImage.sprite.bounds.size;
-            componentImage.sprite = sprite;
-            Vector2 newSize = sprite.bounds.size;
-            componentImage.sprite = sprite;
-            float scaleX = originalSize.x / newSize.x;
-            float scaleY = originalSize.y / newSize.y;
-            componentImage.transform.localScale = new Vector3(componentImage.transform.localScale.x *scaleX, componentImage.transform.localScale.y *scaleY, componentImage.transform.localScale.z);
-        }
-    }
 }
