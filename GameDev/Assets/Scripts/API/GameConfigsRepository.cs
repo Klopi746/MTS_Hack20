@@ -8,12 +8,18 @@ using System.Runtime.Serialization;
 using Unity.VisualScripting;
 
 
+[Serializable]
+public class DefaultResponse {
+    public String status;
+}
+
 
 public class GameConfigsRepository: AbstractAPIRepository
 {
     
 
-    private const String BASEURL = "https://venum-games.ru/api";
+    private const String BASEURL = "http://localhost:8000";
+    //private const String BASEURL = "https://venum-games.ru/api";
 
     public IEnumerator GetConfigs<Attributes>(Action<List<ConfigurationOut<Attributes>>> onSuccessCallback, Action<String> onErrorCallback) {
         yield return GetRequest(BASEURL + "/v1/games/configs", onSuccessCallback, onErrorCallback);
@@ -26,6 +32,18 @@ public class GameConfigsRepository: AbstractAPIRepository
     public IEnumerator UpdateConfig<Attributes>(String configId, ConfigurationUpdate<Attributes> data, Action<CreateConfigurationResult> onSuccessCallback, Action<String> onErrorCallback) {
         // onSuccessCallback return always null, i create response model later
         yield return PatchRequest(BASEURL + "/v1/games/configs/" + configId, data, onSuccessCallback, onErrorCallback);
+    }
+
+    public IEnumerator GetConfig<Attributes>(String configId, Action<ConfigurationOut<Attributes>> onSuccessCallback, Action<String> onErrorCallback) {
+        yield return GetRequest(BASEURL + "/v1/games/configs/" + configId, onSuccessCallback, onErrorCallback);
+    }
+
+    public IEnumerator GetCurrentActiveConfig<Attributes>(String gameType, Action<ConfigurationOut<Attributes>> onSuccessCallback, Action<String> onErrorCallback) {
+        yield return GetRequest(BASEURL + "/v1/games/configs/active/" + gameType, onSuccessCallback, onErrorCallback);
+    }
+
+    public IEnumerator SetCurrentActiveConfig(String configId, Action<DefaultResponse> onSuccessCallback, Action<String> onErrorCallback) {
+        yield return PostRequest(BASEURL + $"/v1/games/configs/{configId}/make-active", null, "application/json", onSuccessCallback, onErrorCallback);
     }
 }
 

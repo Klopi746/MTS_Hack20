@@ -25,8 +25,8 @@ public static class ImageLoader
             Sprite sprite = Sprite.Create(texture,
             new Rect(0, 0, texture.width, texture.height),
             new Vector2(0.5f, 0.5f));
-            if (objSprite is SpriteRenderer componentSpriteRenderer) componentSpriteRenderer.sprite = sprite;
-            else if (objSprite is Image componentImage) componentImage.sprite = sprite;
+            if (objSprite is SpriteRenderer componentSpriteRenderer){componentSpriteRenderer.color = Color.white; componentSpriteRenderer.sprite = sprite;}
+            else if (objSprite is Image componentImage) {componentImage.color = Color.white; componentImage.sprite = sprite;}
             else Debug.Log($"Я незнаю что это за компонент у объекта {objSprite}. Укажи Мне!");
         }
     }

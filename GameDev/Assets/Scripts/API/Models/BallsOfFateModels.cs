@@ -7,8 +7,10 @@ public class BallsOfFateAttributesOut
 {
     public string backgroundSprite;
     public string backgroundColor;
-    public string platformSprite;
-    public string platformColor;
+    public string platformSpriteFirst;
+    public string platformColorFirst;
+    public string platformSpriteSecond;
+    public string platformColorSecond;
     public string ballOneColor;
     public string ballOneSprite;
     public string ballTwoColor;
@@ -17,16 +19,68 @@ public class BallsOfFateAttributesOut
     public string ballTwoEffectColor;
     public string backgroundMusic;
     public float speedOfGame;
+    public int difficulty;
+
+    public BallsOfFateAttributesOut(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame, int difficulty)
+
+    {
+        this.backgroundSprite = backgroundSprite;
+        this.backgroundColor = backgroundColor;
+        this.platformSpriteFirst = platformSpriteFirst;
+        this.platformColorFirst = platformColorFirst;
+        this.platformSpriteSecond = platformSpriteSecond;
+        this.platformColorSecond = platformColorSecond;
+        this.ballOneColor = ballOneColor;
+        this.ballOneSprite = ballOneSprite;
+        this.ballTwoColor = ballTwoColor;
+        this.ballTwoSprite = ballTwoSprite;
+        this.ballOneEffectColor = ballOneEffectColor;
+        this.ballTwoEffectColor = ballTwoEffectColor;
+        this.backgroundMusic = backgroundMusic;
+        this.speedOfGame = speedOfGame;
+        this.difficulty = difficulty;
+    }
 }
 
 
 [Serializable]
 public class BallsOfFateAttributesCreate
 {
-    public String background;
+    public string backgroundSprite;
+    public string backgroundColor;
+    public string platformSpriteFirst;
+    public string platformColorFirst;
+    public string platformSpriteSecond;
+    public string platformColorSecond;
+    public string ballOneColor;
+    public string ballOneSprite;
+    public string ballTwoColor;
+    public string ballTwoSprite;
+    public string ballOneEffectColor;
+    public string ballTwoEffectColor;
+    public string backgroundMusic;
+    public float speedOfGame;
+    public int difficulty;
 
-    public BallsOfFateAttributesCreate(String background) {
-        this.background = background;
+
+    public BallsOfFateAttributesCreate(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame, int difficulty)
+
+    {
+        this.backgroundSprite = backgroundSprite;
+        this.backgroundColor = backgroundColor;
+        this.platformSpriteFirst = platformSpriteFirst;
+        this.platformColorFirst = platformColorFirst;
+        this.platformSpriteSecond = platformSpriteSecond;
+        this.platformColorSecond = platformColorSecond;
+        this.ballOneColor = ballOneColor;
+        this.ballOneSprite = ballOneSprite;
+        this.ballTwoColor = ballTwoColor;
+        this.ballTwoSprite = ballTwoSprite;
+        this.ballOneEffectColor = ballOneEffectColor;
+        this.ballTwoEffectColor = ballTwoEffectColor;
+        this.backgroundMusic = backgroundMusic;
+        this.speedOfGame = speedOfGame;
+        this.difficulty = difficulty;
     }
 }
 
@@ -34,10 +88,40 @@ public class BallsOfFateAttributesCreate
 [Serializable]
 public class BallsOfFateAttributesUpdate
 {
-    public String background;
+    public string backgroundSprite;
+    public string backgroundColor;
+    public string platformSpriteFirst;
+    public string platformColorFirst;
+    public string platformSpriteSecond;
+    public string platformColorSecond;
+    public string ballOneColor;
+    public string ballOneSprite;
+    public string ballTwoColor;
+    public string ballTwoSprite;
+    public string ballOneEffectColor;
+    public string ballTwoEffectColor;
+    public string backgroundMusic;
+    public float speedOfGame;
+    public int difficulty;
 
-    public BallsOfFateAttributesUpdate(String background)
+
+    public BallsOfFateAttributesUpdate(string backgroundSprite, string backgroundColor, string platformSpriteFirst, string platformColorFirst, string platformSpriteSecond, string platformColorSecond, string ballOneColor, string ballOneSprite, string ballTwoColor, string ballTwoSprite, string ballOneEffectColor, string ballTwoEffectColor, string backgroundMusic, float speedOfGame, int difficulty)
+
     {
-        this.background = background;
+        this.backgroundSprite = backgroundSprite;
+        this.backgroundColor = backgroundColor;
+        this.platformSpriteFirst = platformSpriteFirst;
+        this.platformColorFirst = platformColorFirst;
+        this.platformSpriteSecond = platformSpriteSecond;
+        this.platformColorSecond = platformColorSecond;
+        this.ballOneColor = ballOneColor;
+        this.ballOneSprite = ballOneSprite;
+        this.ballTwoColor = ballTwoColor;
+        this.ballTwoSprite = ballTwoSprite;
+        this.ballOneEffectColor = ballOneEffectColor;
+        this.ballTwoEffectColor = ballTwoEffectColor;
+        this.backgroundMusic = backgroundMusic;
+        this.speedOfGame = speedOfGame;
+        this.difficulty = difficulty;
     }
 }

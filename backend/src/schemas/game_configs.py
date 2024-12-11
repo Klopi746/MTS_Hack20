@@ -7,6 +7,9 @@ from pydantic_mongo import PydanticObjectId
 
 
 class GameConfigCreate(BaseModel):
+    title: str
+    game_type: str
+    active: bool = False
     configuration: Mapping[str, Any]
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
@@ -17,6 +20,9 @@ class GameConfigOut(GameConfigCreate):
 
 
 class GameConfigUpdate(BaseModel):
+    title: str
     configuration: Mapping[str, Any]
+    active: bool
+
 
 
