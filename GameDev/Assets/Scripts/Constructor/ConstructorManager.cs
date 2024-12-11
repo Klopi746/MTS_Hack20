@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,7 +6,6 @@ public class ConstructorManager : MonoBehaviour
 {
     private GameObject selectedObject;
     private Color originalColor;
-    public Sprite originalSprite;
     private ColorChangeButton previousButton;
 
     [Header("Effect Spawn Settings")]
@@ -17,11 +17,19 @@ public class ConstructorManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mousePosition, Vector2.zero);
 
-            if (hit.collider != null)
+            // Если объектов, пересекающих луч, несколько
+            if (hits.Length > 0)
             {
-                SelectObject(hit.collider.gameObject);
+                // Сортируем объекты по расстоянию (для правильного выбора переднего)
+                RaycastHit2D closestHit = hits.OrderBy(hit => hit.distance).FirstOrDefault();
+
+                if (closestHit.collider != null)
+                {
+                    SelectObject(closestHit.collider.gameObject);
+                }
             }
         }
     }
@@ -50,8 +58,6 @@ public class ConstructorManager : MonoBehaviour
             color.a = 0.6f;
             currentRenderer.color = color;
         }
-
-       
 
     }
 
@@ -133,7 +139,7 @@ public class ConstructorManager : MonoBehaviour
             {
                 // Восстановление оригинального цвета
                 spriteRenderer.color = Color.white;
-                spriteRenderer.sprite = originalSprite;
+                
                 // Восстановить полную непрозрачность объекта
                 Color color = spriteRenderer.color;
                 color.a = 1f;
