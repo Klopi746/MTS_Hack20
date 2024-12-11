@@ -511,6 +511,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117006801}
   m_CullTransparentMesh: 1
+--- !u!114 &202710508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+  m_PrefabInstance: {fileID: 904373373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72300433847757740879655d5f6438b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &409032832
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[0]._key
-      value: platformSprite
+      value: platformColor
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[2]._key
@@ -994,6 +1005,10 @@ PrefabInstance:
       propertyPath: DataToSet._pairs.Array.data[5]._value
       value: 
       objectReference: {fileID: 117548, guid: 5f33830b4262c4f3f9f402cc37868a40, type: 3}
+    - target: {fileID: 5869210769365538201, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: SetDataSCRIPT
+      value: 
+      objectReference: {fileID: 202710508}
     - target: {fileID: 6537975622966594614, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 671.7593

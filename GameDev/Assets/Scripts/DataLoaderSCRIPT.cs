@@ -29,7 +29,7 @@ public class DataLoaderSCRIPT : MonoBehaviour
         {
             Debug.Log($"Configs loaded: {configs.Count}");
             if (configs.Count < 1) {Debug.LogWarning("There is no Configs!"); return;}
-            SetData(configs[3]);
+            SetData(configs[2]);
         },
             error =>
         {
