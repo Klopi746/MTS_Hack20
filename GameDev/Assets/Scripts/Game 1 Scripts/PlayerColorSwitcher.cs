@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerColorSwitcher : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer; 
+    public SpriteRenderer spriteRenderer;
     public bool isBlack = false;
     Animator anim;
     public SpriteRenderer firstColor;
@@ -31,15 +31,18 @@ public class PlayerColorSwitcher : MonoBehaviour
 
             isBlack = !isBlack;
             SetColor(isBlack ? firstColor.color : secondColor.color);
-            PlayerPrefs.SetInt("PlayerColor", isBlack ? 1 : 0); 
+            PlayerPrefs.SetInt("PlayerColor", isBlack ? 1 : 0);
         }
     }
 
     private void SetColor(Color color)
     {
+        // Получаем только RGB компоненты (игнорируем альфу)
+        Color colorWithoutAlpha = new Color(color.r, color.g, color.b, 1f);
+
         if (spriteRenderer.material.HasProperty("_Color"))
         {
-            spriteRenderer.material.SetColor("_Color", color);
+            spriteRenderer.material.SetColor("_Color", colorWithoutAlpha);
         }
     }
 }
