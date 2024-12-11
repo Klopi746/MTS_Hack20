@@ -18,8 +18,8 @@ public class GameConfigsRepository: AbstractAPIRepository
 {
     
 
-    private const String BASEURL = "http://localhost:8000";
-    //private const String BASEURL = "https://venum-games.ru/api";
+    //private const String BASEURL = "http://localhost:8000";
+    private const String BASEURL = "https://venum-games.ru/api";
 
     public IEnumerator GetConfigs<Attributes>(Action<List<ConfigurationOut<Attributes>>> onSuccessCallback, Action<String> onErrorCallback) {
         yield return GetRequest(BASEURL + "/v1/games/configs", onSuccessCallback, onErrorCallback);

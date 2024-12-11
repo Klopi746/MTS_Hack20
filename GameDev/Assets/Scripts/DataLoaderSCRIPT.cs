@@ -10,6 +10,7 @@ public class DataLoaderSCRIPT : MonoBehaviour
     public static DataLoaderSCRIPT Instance;
     public MonoBehaviour SetDataSCRIPT;
     public bool isDataImporter = true;
+    public string GameName = "ColorSwitch";
     public Dictionary<string, string> DataToUse = new Dictionary<string, string>();
 
     void Awake()
@@ -25,11 +26,11 @@ public class DataLoaderSCRIPT : MonoBehaviour
     }
     IEnumerator LoadConfig()
     {
-        yield return config.GetConfigs<BallsOfFateAttributesOut>(configs =>
+        yield return config.GetCurrentActiveConfig<BallsOfFateAttributesOut>(GameName,
+            config =>
         {
-            Debug.Log($"Configs loaded: {configs.Count}");
-            if (configs.Count < 1) {Debug.LogWarning("There is no Configs!"); return;}
-            SetData(configs[0]);
+            Debug.Log($"Configs loaded: {config}");
+            SetData(config);
         },
             error =>
         {
