@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 13392157}
   - component: {fileID: 13392160}
   - component: {fileID: 13392159}
+  - component: {fileID: 13392161}
   m_Layer: 0
   m_Name: DataLoader
   m_TagString: Untagged
@@ -165,10 +166,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DataToSet:
     _pairs:
-    - _key: playerColor
-      _value: {fileID: 286802806}
     - _key: tileColor
       _value: {fileID: 210509432591681509, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
+    - _key: platformSprite
+      _value: {fileID: 286802806}
 --- !u!114 &13392160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +184,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SetDataSCRIPT: {fileID: 13392159}
   isDataImporter: 1
-  DataToUse:
-    _pairs: []
+--- !u!114 &13392161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13392155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6bff63ed9375e498c725ee193d953b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &122508268
 GameObject:
   m_ObjectHideFlags: 0

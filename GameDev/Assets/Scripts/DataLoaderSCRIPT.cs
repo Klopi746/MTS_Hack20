@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using SerializableDictionary.Scripts;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class DataLoaderSCRIPT : MonoBehaviour
 {
     public static DataLoaderSCRIPT Instance;
     public MonoBehaviour SetDataSCRIPT;
     public bool isDataImporter = true;
-    public SerializableDictionary<string, string> DataToUse = new SerializableDictionary<string, string>();
+    public Dictionary<string, string> DataToUse = new Dictionary<string, string>();
 
     void Awake()
     {
@@ -27,7 +29,7 @@ public class DataLoaderSCRIPT : MonoBehaviour
         {
             Debug.Log($"Configs loaded: {configs.Count}");
             if (configs.Count < 1) {Debug.LogWarning("There is no Configs!"); return;}
-            SetData(configs[0]);
+            SetData(configs[3]);
         },
             error =>
         {
@@ -41,8 +43,11 @@ public class DataLoaderSCRIPT : MonoBehaviour
         var attributes = config.configuration;
         foreach(var key in keys)
         {
-            var value = key.GetValue(attributes).ToString();
-            DataToUse.Add(key.Name, key.GetValue(attributes).ToString());
+            var value = key.GetValue(attributes);
+            if (value == null) continue;
+            var valueStr = value.ToString();
+            Debug.Log(key.Name + ":" + valueStr);
+            DataToUse.Add(key.Name, valueStr);
         }
         // string name = config.configuration.backgroundSprite;
         // DataToUse.Add(name, name);
