@@ -3,18 +3,14 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
 
-public class ImageLoader : MonoBehaviour
+public static class ImageLoader
 {
-    public Image uiImage;
-    public string imageUrl;
-
-    void Start()
+    public static void GetSpriteFromUrl(string spriteUrl, SpriteRenderer objSprite)
     {
-        string decodedUrl = DecodeUrl(imageUrl);
-        StartCoroutine(GetTexture(decodedUrl));
+        string decodedUrl = DecodeUrl(spriteUrl);
+        CoroutineManagerSCRIPT.Instance.Run(GetTexture(decodedUrl, objSprite));
     }
-
-    IEnumerator GetTexture(string url)
+    static IEnumerator GetTexture(string url, SpriteRenderer objSprite)
     {
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
         yield return www.SendWebRequest();
@@ -29,11 +25,11 @@ public class ImageLoader : MonoBehaviour
             Sprite sprite = Sprite.Create(texture,
             new Rect(0, 0, texture.width, texture.height),
             new Vector2(0.5f, 0.5f));
-            uiImage.sprite = sprite;
+            objSprite.sprite = sprite;
         }
     }
 
-    string DecodeUrl(string url)
+    static string DecodeUrl(string url)
     {
         if (url.Contains("imgurl="))
         {
