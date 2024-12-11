@@ -8,13 +8,40 @@ using UnityEngine.Networking;
 public class DataLoaderSCRIPT : MonoBehaviour
 {
     public static DataLoaderSCRIPT Instance;
+    public MonoBehaviour SetDataSCRIPT;
     public SerializableDictionary<string, int> spritesToDownload = new SerializableDictionary<string, int>();
-
 
     void Awake()
     {
         Instance = this;
+        GetData();
     }
+
+    GameConfigsRepository config = new GameConfigsRepository();
+    public void GetData()
+    {
+        StartCoroutine(LoadConfig());
+    }
+    IEnumerator LoadConfig()
+    {
+        yield return config.GetConfigs<BallsOfFateAttributesOut>(configs => 
+        {
+            Debug.Log($"Configs loaded: {configs.Count}");
+            SetData(configs[0]);
+        },
+            error =>
+        {
+            Debug.LogError($"Error loading configs: {error}");
+        }
+        );
+    }
+    void SetData(ConfigurationOut<BallsOfFateAttributesOut> config)
+    {
+        string name = config.configuration.backgroundSprite;
+        spritesToDownload.Add(name, 0);
+        SetDataSCRIPT.Invoke("SetData", 0f);
+    }
+
 
     public void SendData()
     {
