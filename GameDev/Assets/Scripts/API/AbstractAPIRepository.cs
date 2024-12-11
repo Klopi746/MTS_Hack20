@@ -16,7 +16,7 @@ public abstract class AbstractAPIRepository
         {
             yield return request.SendWebRequest();
 
-            if (request.isError || request.responseCode != (long)System.Net.HttpStatusCode.OK)
+            if (request.isNetworkError || request.responseCode != (long)System.Net.HttpStatusCode.OK)
             {
                 Debug.Log(request.error);
                 onErrorCallback(request.error);
@@ -102,7 +102,7 @@ public abstract class AbstractAPIRepository
 
             yield return request.SendWebRequest();
 
-            if (request.isError || request.responseCode != (long)System.Net.HttpStatusCode.OK)
+            if (request.isNetworkError || request.responseCode != (long)System.Net.HttpStatusCode.OK)
             {
                 Debug.LogError(request.error);
                 onErrorCallback(request.error);
