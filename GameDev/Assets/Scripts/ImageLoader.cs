@@ -5,12 +5,12 @@ using System.Collections;
 
 public static class ImageLoader
 {
-    public static void GetSpriteFromUrl(string spriteUrl, SpriteRenderer objSprite)
+    public static void GetSpriteFromUrl(string spriteUrl, Component objSprite)
     {
         string decodedUrl = DecodeUrl(spriteUrl);
         CoroutineManagerSCRIPT.Instance.Run(GetTexture(decodedUrl, objSprite));
     }
-    static IEnumerator GetTexture(string url, SpriteRenderer objSprite)
+    static IEnumerator GetTexture(string url, Component objSprite)
     {
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
         yield return www.SendWebRequest();
@@ -25,7 +25,9 @@ public static class ImageLoader
             Sprite sprite = Sprite.Create(texture,
             new Rect(0, 0, texture.width, texture.height),
             new Vector2(0.5f, 0.5f));
-            objSprite.sprite = sprite;
+            if (objSprite is SpriteRenderer componentSpriteRenderer) componentSpriteRenderer.sprite = sprite;
+            else if (objSprite is Image componentImage) componentImage.sprite = sprite;
+            else Debug.Log($"Я незнаю что это за компонент у объекта {objSprite}. Укажи Мне!");
         }
     }
 

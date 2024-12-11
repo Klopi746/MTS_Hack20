@@ -1,12 +1,9 @@
-using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 using SerializableDictionary.Scripts;
-using UnityEngine.InputSystem;
 using System;
-using System.Resources;
+using UnityEngine.UI;
 
-public class Game2SetDataToObj : MonoBehaviour
+public class GameSetDataToObj : MonoBehaviour
 {
     public SerializableDictionary<string, GameObject> DataToSet = new SerializableDictionary<string, GameObject>();
     public void SetData()
@@ -20,7 +17,9 @@ public class Game2SetDataToObj : MonoBehaviour
                 if (isStringUrlSCRIPT.IsUrl(url))
                 {
                     SpriteRenderer spriteRendererComponent = kvp.Value.GetComponent<SpriteRenderer>();
-                    ImageLoader.GetSpriteFromUrl(url, spriteRendererComponent);
+                    Image spriteImageComponent = kvp.Value.GetComponent<Image>();
+                    if (spriteRendererComponent != null) ImageLoader.GetSpriteFromUrl(url, spriteRendererComponent);
+                    else ImageLoader.GetSpriteFromUrl(url, spriteImageComponent);
                 }
             }
             if (kvp.Key.Contains("Color", StringComparison.OrdinalIgnoreCase))
@@ -29,7 +28,14 @@ public class Game2SetDataToObj : MonoBehaviour
                 byte r = Convert.ToByte(colorString.Substring(0, 2), 16); // Красный
                 byte g = Convert.ToByte(colorString.Substring(2, 2), 16); // Зеленый
                 byte b = Convert.ToByte(colorString.Substring(4, 2), 16); // Синий
-                kvp.Value.GetComponent<SpriteRenderer>().color = new Color(r,g,b);
+                Color newColor = new Color(r,g,b);
+                SpriteRenderer colorRendererComponent = kvp.Value.GetComponent<SpriteRenderer>();
+                Image colorImageComponent = kvp.Value.GetComponent<Image>();
+                ParticleSystem colorParticalSystem = kvp.Value.GetComponent<ParticleSystem>();
+                if (colorRendererComponent != null) colorRendererComponent.color = newColor;
+                else if(colorImageComponent) colorImageComponent.color = newColor;
+                else if(colorParticalSystem) colorParticalSystem.startColor = newColor;
+                else Debug.Log($"Я незнаю что это за компонент у объекта {kvp.Value}. Укажи Мне!");
             }
         }
     }
