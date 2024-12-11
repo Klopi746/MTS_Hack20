@@ -1092,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 202710508}
     - target: {fileID: 5869210769365538201, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: isDataImporter
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6537975622966594614, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: m_LocalPosition.x

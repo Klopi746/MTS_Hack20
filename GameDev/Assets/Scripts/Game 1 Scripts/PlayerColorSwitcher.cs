@@ -20,7 +20,7 @@ public class PlayerColorSwitcher : MonoBehaviour
     {
         isBlack = PlayerPrefs.GetInt("PlayerColor", 0) == 1;
         Debug.Log($"PlayerPrefs loaded. isBlack: {isBlack}");
-        SetColor(isBlack ? Color.black : Color.white);
+        SetColor(isBlack ? firstColor.color : secondColor.color);
     }
 
     void Update()
