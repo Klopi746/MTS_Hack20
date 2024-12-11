@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 13392157}
-  - component: {fileID: 13392158}
+  - component: {fileID: 13392160}
   - component: {fileID: 13392159}
   m_Layer: 0
   m_Name: DataLoader
@@ -151,24 +151,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &13392158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13392155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3405a85f727b74d9e9ef3fc6e5ae29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpritesToDownload:
-    _pairs:
-    - _key: player
-      _value: {fileID: 286802807}
-    - _key: tile
-      _value: {fileID: 1016888325489547394, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
 --- !u!114 &13392159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +163,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72300433847757740879655d5f6438b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &13392160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13392155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3405a85f727b74d9e9ef3fc6e5ae29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesToDownload:
+    _pairs:
+    - _key: player
+      _value: 0
+    - _key: tile
+      _value: 0
 --- !u!1 &122508268
 GameObject:
   m_ObjectHideFlags: 0
