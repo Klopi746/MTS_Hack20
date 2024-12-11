@@ -37,6 +37,10 @@ public class GameSetDataToObj : MonoBehaviour
                 else if(colorParticalSystem) colorParticalSystem.startColor = newColor;
                 else Debug.Log($"Я незнаю что это за компонент у объекта {kvp.Value}. Укажи Мне!");
             }
+            if (kvp.Key.Contains("difficulty", StringComparison.OrdinalIgnoreCase))
+            {
+                DifficultySCRIPT.Instance.SetDifficulty(Convert.ToInt32(DataLoaderSCRIPT.Instance.DataToUse[kvp.Key]));
+            }
         }
     }
 }

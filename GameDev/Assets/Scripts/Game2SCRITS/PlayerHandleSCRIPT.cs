@@ -47,6 +47,10 @@ public class PlayerHandleSCRIPT : MonoBehaviour
     public bool canRotate = false;
     private float startTimeBetweenMove;
     public int difficulty = 10;
+    public void UpdateDifficulty()
+    {
+        difficulty = DifficultySCRIPT.Instance.difficulty;
+    }
     IEnumerator PlayerHandler()
     {
         while (Game2ManagerSCRIPT.Instance.isGameStarted == false) yield return null;

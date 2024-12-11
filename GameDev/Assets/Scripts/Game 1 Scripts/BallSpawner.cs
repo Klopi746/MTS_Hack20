@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
+    public static BallSpawner Instance;
+    void Awake()
+    {
+        Instance = this;
+    }
     public GameObject enemyBallType1;
     public GameObject enemyBallType2;
     public Transform spawnPoint1;
@@ -58,5 +63,11 @@ public class BallSpawner : MonoBehaviour
         enemySpeed += speedIncreaseRate;
 
         Invoke("SpawnEnemy", currentSpawnInterval);
+    }
+
+    public void UpdateDifficulty()
+    {
+        spawnIntervalDecreaseRate *= DifficultySCRIPT.Instance.difficulty;
+        speedIncreaseRate *= DifficultySCRIPT.Instance.difficulty;
     }
 }
