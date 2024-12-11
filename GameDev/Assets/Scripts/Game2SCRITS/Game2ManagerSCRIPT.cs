@@ -51,6 +51,8 @@ public class Game2ManagerSCRIPT : MonoBehaviour
     public string endText = "Earned 0 MtsCoins";
     public void DieHandler()
     {
+        var lastTilesPainted = PlayerPrefs.GetInt("Game2MtsCoins");
+        PlayerPrefs.SetInt("Game2MtsCoins", tilesPainted > lastTilesPainted ? tilesPainted : lastTilesPainted);
         endGameText.text = ($"Earned {tilesPainted} MtsCoins");
         endGameButton.gameObject.SetActive(true);
         OfferPlayAgain();
