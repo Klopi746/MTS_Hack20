@@ -22,10 +22,14 @@ async def create_config(game_config: GameConfigCreate):
     return await GameConfigsRepository().create_config(game_config)
 
 
-@router.get('/active/{game_type}', response_model=GameConfigOut | None)
+@router.get('/active/{game_type}', response_model=GameConfigOut)
 async def get_active_game_config(game_type: str):
-    return await GameConfigsRepository().get_active(game_type=game_type)
+    game_config = await GameConfigsRepository().get_active(game_type=game_type)
 
+    if not game_config:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Конфиг для игры не найден")
+
+    return game_config
 
 
 @router.get('/{config_id}', response_model=GameConfigOut)
@@ -44,15 +48,19 @@ async def get_config(config_id: str):
 @router.delete('/{config_id}')
 async def delete_config(config_id: int):
     await GameConfigsRepository().create_config(config_id)
+    return {'status': 'OK'}
 
 
 @router.patch('/{config_id}')
 async def update_config(config_id: str, data: GameConfigUpdate):
     await GameConfigsRepository().update_by_id(_id=config_id, data=data)
+    return {'status': 'OK'}
 
 
 @router.post('/{config_id}/make-active')
 async def make_config_active(config_id: str):
     await GameConfigsRepository().mark_as_active(_id=config_id)
+    return {'status': 'OK'}
+
 
 
