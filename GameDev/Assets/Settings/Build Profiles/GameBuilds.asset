@@ -18,9 +18,9 @@ MonoBehaviour:
   m_PlatformBuildProfile:
     rid: 6724568191721799683
   m_Scenes:
-  - m_enabled: 0
-    m_path: Assets/Scenes/ColorSwitch Game 1.unity
   - m_enabled: 1
+    m_path: Assets/Scenes/ColorSwitch Game 1.unity
+  - m_enabled: 0
     m_path: Assets/Scenes/CubeRunGame2.unity
   - m_enabled: 0
     m_path: Assets/Scenes/Magazine.unity

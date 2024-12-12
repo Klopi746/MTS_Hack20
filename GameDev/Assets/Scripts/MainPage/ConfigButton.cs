@@ -9,6 +9,8 @@ public class ConfigButton : MonoBehaviour
     private Color originalColor;
     private SVGImage svgImage;
 
+    public string id;
+
     void Start()
     {
         button1.gameObject.SetActive(false);
