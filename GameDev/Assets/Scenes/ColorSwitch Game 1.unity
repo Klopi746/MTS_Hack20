@@ -1024,7 +1024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[0]._key
-      value: backgroundColor
+      value: backgroundSprite
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[1]._key
@@ -1056,15 +1056,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[8]._key
-      value: backgroundSprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
-      propertyPath: DataToSet._pairs.Array.data[9]._key
       value: platformSpriteFirst
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
-      propertyPath: DataToSet._pairs.Array.data[10]._key
+      propertyPath: DataToSet._pairs.Array.data[9]._key
       value: ballOneSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[10]._key
+      value: backgroundColor
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[11]._key
@@ -1105,15 +1105,15 @@ PrefabInstance:
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[8]._value
       value: 
-      objectReference: {fileID: 409032832}
+      objectReference: {fileID: 8567964226474418425}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[9]._value
       value: 
-      objectReference: {fileID: 8567964226474418425}
+      objectReference: {fileID: 8492146099245401832, guid: 1529eda1d191545b39791b8ea3f26b0c, type: 3}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[10]._value
       value: 
-      objectReference: {fileID: 8492146099245401832, guid: 1529eda1d191545b39791b8ea3f26b0c, type: 3}
+      objectReference: {fileID: 409032832}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[11]._value
       value: 
