@@ -51,7 +51,7 @@ public class ConstructorManager : MonoBehaviour
         Debug.Log($"Выбран объект: {selectedObject.name}");
 
         // Снижение прозрачности нового выбранного объекта
-        SpriteRenderer currentRenderer = selectedObject.GetComponent<SpriteRenderer>();
+        Image currentRenderer = selectedObject.GetComponent<Image>();
         if (currentRenderer != null)
         {
             Color color = currentRenderer.color;
@@ -65,7 +65,7 @@ public class ConstructorManager : MonoBehaviour
     {
         if (selectedObject != null)
         {
-            SpriteRenderer previousRenderer = selectedObject.GetComponent<SpriteRenderer>();
+            Image previousRenderer = selectedObject.GetComponent<Image>();
             if (previousRenderer != null)
             {
                 Color color = previousRenderer.color;
@@ -83,7 +83,7 @@ public class ConstructorManager : MonoBehaviour
         {
             if (ColorUtility.TryParseHtmlString(hexColor, out Color color))
             {
-                SpriteRenderer spriteRenderer = selectedObject.GetComponent<SpriteRenderer>();
+                Image spriteRenderer = selectedObject.GetComponent<Image>();
                 if (spriteRenderer != null)
                 {
                     if (spriteRenderer.color == color)
@@ -134,7 +134,7 @@ public class ConstructorManager : MonoBehaviour
     {
         if (selectedObject != null)
         {
-            SpriteRenderer spriteRenderer = selectedObject.GetComponent<SpriteRenderer>();
+            Image spriteRenderer = selectedObject.GetComponent<Image>();
             if (spriteRenderer != null)
             {
                 // Восстановление оригинального цвета
@@ -165,7 +165,7 @@ public class ConstructorManager : MonoBehaviour
     {
         if (selectedObject != null)
         {
-            SpriteRenderer spriteRenderer = selectedObject.GetComponent<SpriteRenderer>();
+            Image spriteRenderer = selectedObject.GetComponent<Image>();
             if (spriteRenderer != null)
             {
                 spriteRenderer.sprite = newSprite;
