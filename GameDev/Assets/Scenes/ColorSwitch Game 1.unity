@@ -711,7 +711,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1440, y: 1024}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1020,7 +1020,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.size
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[0]._key
@@ -1055,6 +1055,22 @@ PrefabInstance:
       value: difficulty
       objectReference: {fileID: 0}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[8]._key
+      value: backgroundSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[9]._key
+      value: platformSpriteFirst
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[10]._key
+      value: ballOneSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[11]._key
+      value: platformSpriteFirst
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[0]._value
       value: 
       objectReference: {fileID: 409032832}
@@ -1086,6 +1102,22 @@ PrefabInstance:
       propertyPath: DataToSet._pairs.Array.data[7]._value
       value: 
       objectReference: {fileID: 1770711293}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[8]._value
+      value: 
+      objectReference: {fileID: 409032832}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[9]._value
+      value: 
+      objectReference: {fileID: 8567964226474418425}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[10]._value
+      value: 
+      objectReference: {fileID: 8492146099245401832, guid: 1529eda1d191545b39791b8ea3f26b0c, type: 3}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[11]._value
+      value: 
+      objectReference: {fileID: 8567964226474418425}
     - target: {fileID: 5869210769365538201, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: SetDataSCRIPT
       value: 
@@ -1889,7 +1921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ReferenceResolution: {x: 1440, y: 1024}
-  Mode: 1
+  Mode: 0
   MatchWidthOrHeight: 0.5
 --- !u!1 &1770711293 stripped
 GameObject:
@@ -2276,6 +2308,11 @@ GameObject:
 --- !u!1 &8567964226474418424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2144026017026817138, guid: beb26bb8563664df393f437cf98ec6d1, type: 3}
+  m_PrefabInstance: {fileID: 8567964226474418422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8567964226474418425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3702954676081735407, guid: beb26bb8563664df393f437cf98ec6d1, type: 3}
   m_PrefabInstance: {fileID: 8567964226474418422}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
