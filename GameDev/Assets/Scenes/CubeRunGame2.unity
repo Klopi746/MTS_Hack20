@@ -442,6 +442,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1436392886}
+  - {fileID: 2001681453}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &286802809
@@ -1794,12 +1795,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001681451}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 40, y: 40, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 286802808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2025107548
 GameObject:
@@ -2033,13 +2034,69 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[0]._key
+      value: backgroundColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[1]._key
+      value: tileUnPaintedColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[2]._key
+      value: difficulty
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[3]._key
+      value: playerColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[4]._key
+      value: destroyEffectColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[5]._key
+      value: paintEffectColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[6]._key
+      value: playerSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[0]._value
       value: 
-      objectReference: {fileID: 286802806}
+      objectReference: {fileID: 2001681451}
     - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: DataToSet._pairs.Array.data[1]._value
       value: 
-      objectReference: {fileID: 2001681451}
+      objectReference: {fileID: 210509432591681509, guid: 5051ecdff7668614b81c14bd6af8b285, type: 3}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[2]._value
+      value: 
+      objectReference: {fileID: 5621558242745050466}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[3]._value
+      value: 
+      objectReference: {fileID: 286802806}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[4]._value
+      value: 
+      objectReference: {fileID: 117548, guid: 2a255052e3619f940a7d2fcdba73399c, type: 3}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[5]._value
+      value: 
+      objectReference: {fileID: 117548, guid: 8329abd31b73d19449445c2e2926e7f1, type: 3}
+    - target: {fileID: 3361195599851214598, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: DataToSet._pairs.Array.data[6]._value
+      value: 
+      objectReference: {fileID: 286802806}
+    - target: {fileID: 5869210769365538201, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
+      propertyPath: GameName
+      value: CubeRun
+      objectReference: {fileID: 0}
     - target: {fileID: 5869210769365538201, guid: cd0c0b22330a02f4aa372414f2fb0bd4, type: 3}
       propertyPath: SetDataSCRIPT
       value: 
@@ -2150,6 +2207,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ffe41fbd79de7b418dba14c88daa50e, type: 3}
+--- !u!1 &5621558242745050466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8804922948451742306, guid: 0ffe41fbd79de7b418dba14c88daa50e, type: 3}
+  m_PrefabInstance: {fileID: 5621558242745050465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2162,5 +2224,4 @@ SceneRoots:
   - {fileID: 122508270}
   - {fileID: 604234202}
   - {fileID: 888736518717494034}
-  - {fileID: 2001681453}
   - {fileID: 5621558242745050465}
