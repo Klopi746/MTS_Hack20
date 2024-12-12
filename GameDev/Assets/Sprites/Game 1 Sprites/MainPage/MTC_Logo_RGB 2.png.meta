@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MTC_Logo_RGB 2_0: -4729176152646404437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
