@@ -135,31 +135,49 @@ public class PlayerHandleSCRIPT : MonoBehaviour
     public float sizeOfCamRotaion = 0.01f;
     public float slowlinessOfCamRotation = 0.01f;
     public bool isRotating = false;
-    public void OnClickAction(InputAction.CallbackContext context)
+
+    public void Rotate(bool dir)
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!canRotate) return;
         if (isRotating) return;
-        if (context.performed && !isMoving)
+        if (isMoving) return;
+        isRotating = true;
+        StopCoroutine("RotateBy");
+        if (!dir)
         {
-            isRotating = true;
-            StopCoroutine("RotateBy");
-            if (pointerPos.x < screenWidth / 2)
-            {
-                StartCoroutine(RotateBy(false));
-            }
-            else
-            {
-                StartCoroutine(RotateBy(true));
-            }
+            StartCoroutine(RotateBy(false));
+        }
+        else
+        {
+            StartCoroutine(RotateBy(true));
         }
     }
+    // public void OnClickAction(InputAction.CallbackContext context)
+    // {
+    //     if (EventSystem.current.IsPointerOverGameObject()) return;
+    //     if (!canRotate) return;
+    //     if (isRotating) return;
+    //     if (context.performed && !isMoving)
+    //     {
+    //         pointerPos = context.ReadValue<Vector2>();
+    //         isRotating = true;
+    //         StopCoroutine("RotateBy");
+    //         if (pointerPos.x < screenWidth / 2)
+    //         {
+    //             StartCoroutine(RotateBy(false));
+    //         }
+    //         else
+    //         {
+    //             StartCoroutine(RotateBy(true));
+    //         }
+    //     }
+    // }
     IEnumerator RotateBy(bool rotatedir = true)
     {
         Vector3 endRotationVector;
         float curRotation;
         Vector3 curRotationVector;
-
+        isRotating = true;
         if (!rotatedir) // LEFT
         {
             endRotationVector = transform.eulerAngles + LEFTROTATION;
