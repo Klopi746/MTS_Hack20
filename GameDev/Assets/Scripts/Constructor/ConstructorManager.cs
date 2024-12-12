@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ConstructorManager : MonoBehaviour
@@ -12,6 +13,24 @@ public class ConstructorManager : MonoBehaviour
     public Transform effectSpawnPoint;
 
     public int vfxIndex = -1;
+
+
+    /// <summary>
+    /// Переход на указанную сцену.
+    /// </summary>
+    /// <param name="sceneName">Имя сцены для загрузки.</param>
+    public void LoadScene(string sceneName)
+    {
+        // Проверка существования сцены перед загрузкой
+        if (Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError($"Сцена с именем '{sceneName}' не существует. Проверьте название.");
+        }
+    }
 
     private void Update()
     {

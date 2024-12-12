@@ -42,8 +42,7 @@ MonoBehaviour:
     - line: '|   productName: GameDev'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
-    - line: '|   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b:
-        0.1254902, a: 1}'
+    - line: '|   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}'
     - line: '|   m_ShowUnitySplashScreen: 1'
     - line: '|   m_ShowUnitySplashLogo: 1'
     - line: '|   m_SplashScreenOverlayOpacity: 1'
@@ -66,8 +65,11 @@ MonoBehaviour:
     - line: '|     y: 0'
     - line: '|     width: 1'
     - line: '|     height: 1'
-    - line: '|   m_SplashScreenLogos: []'
-    - line: '|   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: c87503620ec944595b9a6a3f35ab0d3e,
+    - line: '|   m_SplashScreenLogos:'
+    - line: '|   - logo: {fileID: -4729176152646404437, guid: fdab20e283e4b42cb9ff2b1a08585f69,
+        type: 3}'
+    - line: '|     duration: 2'
+    - line: '|   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: fdab20e283e4b42cb9ff2b1a08585f69,
         type: 3}'
     - line: '|   m_HolographicTrackingLossScreen: {instanceID: 0}'
     - line: '|   defaultScreenWidth: 1920'
