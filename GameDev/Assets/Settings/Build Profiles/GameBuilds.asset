@@ -22,7 +22,7 @@ MonoBehaviour:
     m_path: Assets/Scenes/ColorSwitch Game 1.unity
   - m_enabled: 0
     m_path: Assets/Scenes/CubeRunGame2.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Scenes/Magazine.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
@@ -66,8 +66,12 @@ MonoBehaviour:
     - line: '|     y: 0'
     - line: '|     width: 1'
     - line: '|     height: 1'
-    - line: '|   m_SplashScreenLogos: []'
-    - line: '|   m_VirtualRealitySplashScreen: {instanceID: 0}'
+    - line: '|   m_SplashScreenLogos:'
+    - line: '|   - logo: {fileID: -5811730399871992648, guid: 90a007d7901c04489ba826964abffaf0,
+        type: 3}'
+    - line: '|     duration: 2'
+    - line: '|   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 90a007d7901c04489ba826964abffaf0,
+        type: 3}'
     - line: '|   m_HolographicTrackingLossScreen: {instanceID: 0}'
     - line: '|   defaultScreenWidth: 1920'
     - line: '|   defaultScreenHeight: 1080'
@@ -761,7 +765,7 @@ MonoBehaviour:
     - line: '|   monoEnv: '
     - line: '|   splashScreenBackgroundSourceLandscape: {instanceID: 0}'
     - line: '|   splashScreenBackgroundSourcePortrait: {instanceID: 0}'
-    - line: '|   blurSplashScreenBackground: 1'
+    - line: '|   blurSplashScreenBackground: 0'
     - line: '|   spritePackerPolicy: '
     - line: '|   webGLMemorySize: 32'
     - line: '|   webGLExceptionSupport: 1'

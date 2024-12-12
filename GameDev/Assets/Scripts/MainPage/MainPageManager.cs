@@ -15,7 +15,6 @@ public class MainPageManager : MonoBehaviour
     [SerializeField]
     private Transform parentObject; // Родительский объект для создания префаба.
 
-    StartConfig startConfigButton;
 
     GameConfigsRepository repository = new GameConfigsRepository();
     /// <summary>

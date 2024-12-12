@@ -16,7 +16,7 @@ public class FirstGameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        scoreText.text = "Счет: " + score.ToString("0");
+        scoreText.text = score.ToString("0");
         player = FindAnyObjectByType<PlayerColorSwitcher>();
     }
 
@@ -28,7 +28,7 @@ public class FirstGameManager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
-        scoreText.text = "Счет: " + score.ToString("0");
+        scoreText.text = score.ToString("0");
     }
 
 
@@ -45,7 +45,7 @@ public class FirstGameManager : MonoBehaviour
         playerCollider.enabled = false;
         isGameOver = true;
         gameOverPanel.SetActive(true);
-        afterGameScore.text = "Ваш счет\n" + score.ToString("0");
+        afterGameScore.text = score.ToString("0");
         SoundManager.Instance.PlaySFX("loss");
     }
 
