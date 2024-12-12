@@ -66,6 +66,14 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
     }
     void HandlePath()
     {
+        if (!isGenerateFirstTile)
+        {
+            for (int i = 0; i < pathStartLength; i++)
+            {
+                GenerateTile();
+            }
+            isGenerateFirstTile = true;
+        }
         if (PATHCONSTLENGTH - Game2ManagerSCRIPT.Instance.tilesUnPainted < Game2ManagerSCRIPT.Instance.STOPTILEGENERATIONAFTERPATHLENGTHLESSTHAN)
         {
             return;
@@ -78,16 +86,12 @@ public class TileMapBuilderSCRIPT : MonoBehaviour
     }
 
     public int pathStartLength = 6;
+    public bool isGenerateFirstTile = false;
     void Start()
     {
         tilesSpawned = pathStartLength;
 
         tileLastPos = transform.position;
-
-        for (int i = 0; i < pathStartLength; i++)
-        {
-            GenerateTile();
-        }
     }
 
     void Update()

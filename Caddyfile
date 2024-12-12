@@ -1,13 +1,13 @@
 {$DOMAIN} {
     handle /api/* {
-		reverse_proxy backend:8000
-	}
+                reverse_proxy backend:8000
+        }
 
-	handle_path /games* {
-		root * /srv/builds
-		file_server browse
+        handle_path /games* {
+                root * /srv/builds
+                file_server browse
 
-		# Set Content-Encoding for Brotli compressed .br files
+                # Set Content-Encoding for Brotli compressed .br files
         @brotli {
             path *.br
         }
@@ -32,11 +32,21 @@
             Content-Type application/wasm
         }
 
-	}
+        }
 
 
-	# Обработка ошибок
-	handle_errors {
-		respond "{err.status_code} {err.status_text}"
-	}
+        handle {
+
+            root * /srv/builds/main
+            file_server browse
+
+        }
+
+        # Обработка ошибок
+        handle_errors {
+                respond "{err.status_code} {err.status_text}"
+
+        }
+
+
 }
