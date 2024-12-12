@@ -1,15 +1,8 @@
 <br />
 <div align="center">
     <img src="media/logo.svg" alt="Logo" width="300" height="80">
-
-  <h2 align="center">MTC.ИГРЫ</h3>
+  <h2 align="center">MTC.ИГРЫ</h2>
   <h3 align="center">MISIS venum</h3>
-  <p align="center">
-    <a href=""><strong>Попробовать »</strong></a>
-  </p>
-<p align="center">
-    <a href=""><strong>Презентация »</strong></a>
-  </p>
 </div>
 
 <div align="center">
