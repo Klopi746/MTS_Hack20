@@ -4,6 +4,8 @@ using UnityEngine;
 [Serializable]
 public class PathOfHeroAttributesOut
 {
+    public string playerColor;
+    public string playerSprite;
     public string backgroundSprite;
     public string backgroundColor;
     public string tileSprite;
@@ -14,8 +16,10 @@ public class PathOfHeroAttributesOut
     public string backgroundMusic;
     public int difficulty;
 
-    public PathOfHeroAttributesOut(string backgroundSprite, string backgroundColor, string tileSprite, string tileUnPaintedColor, string tilePaintedColor, string paintEffectColor, string destroyEffectColor, string backgroundMusic, int difficulty)
+    public PathOfHeroAttributesOut(string playerColor, string playerSprite, string backgroundSprite, string backgroundColor, string tileSprite, string tileUnPaintedColor, string tilePaintedColor, string paintEffectColor, string destroyEffectColor, string backgroundMusic, int difficulty)
     {
+        this.playerColor = playerColor;
+        this.playerSprite = playerSprite;
         this.backgroundSprite = backgroundSprite;
         this.backgroundColor = backgroundColor;
         this.tileSprite = tileSprite;
@@ -31,6 +35,8 @@ public class PathOfHeroAttributesOut
 [Serializable]
 public class PathOfHeroAttributesUpdate
 {
+    public string playerColor;
+    public string playerSprite;
     public string backgroundSprite;
     public string backgroundColor;
     public string tileSprite;
@@ -41,8 +47,10 @@ public class PathOfHeroAttributesUpdate
     public string backgroundMusic;
     public int difficulty;
 
-    public PathOfHeroAttributesUpdate(string backgroundSprite, string backgroundColor, string tileSprite, string tileUnPaintedColor, string tilePaintedColor, string paintEffectColor, string destroyEffectColor, string backgroundMusic, int difficulty)
+    public PathOfHeroAttributesUpdate(string playerColor, string playerSprite, string backgroundSprite, string backgroundColor, string tileSprite, string tileUnPaintedColor, string tilePaintedColor, string paintEffectColor, string destroyEffectColor, string backgroundMusic, int difficulty)
     {
+        this.playerColor = playerColor;
+        this.playerSprite = playerSprite;
         this.backgroundSprite = backgroundSprite;
         this.backgroundColor = backgroundColor;
         this.tileSprite = tileSprite;
@@ -59,6 +67,8 @@ public class PathOfHeroAttributesUpdate
 [Serializable]
 public class PathOfHeroAttributesCreate
 {
+    public string playerColor;
+    public string playerSprite;
     public string backgroundSprite;
     public string backgroundColor;
     public string tileSprite;
@@ -69,8 +79,10 @@ public class PathOfHeroAttributesCreate
     public string backgroundMusic;
     public int difficulty;
 
-    public PathOfHeroAttributesCreate(string backgroundSprite, string backgroundColor, string tileSprite, string tileUnPaintedColor, string tilePaintedColor, string paintEffectColor, string destroyEffectColor, string backgroundMusic, int difficulty)
+    public PathOfHeroAttributesCreate(string playerColor, string playerSprite, string backgroundSprite, string backgroundColor, string tileSprite, string tileUnPaintedColor, string tilePaintedColor, string paintEffectColor, string destroyEffectColor, string backgroundMusic, int difficulty)
     {
+        this.playerColor = playerColor;
+        this.playerSprite = playerSprite;
         this.backgroundSprite = backgroundSprite;
         this.backgroundColor = backgroundColor;
         this.tileSprite = tileSprite;
