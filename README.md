@@ -40,6 +40,11 @@
 <img src="media/redactor.png">
 </div>
 
+| Экраны Web приложения  |  |
+| ------------- | ------------- |
+| ![](media/start1.png)  | ![](media/start.png)  |
+| ![](media/collection.png)  | ![](media/redactor.png)  |
+
 ### Экраны игр
 <div style="display: grid; grid-template-columns: repeat(5, auto)">
 <img src="media/game1_process.png">
