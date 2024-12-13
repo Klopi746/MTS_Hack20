@@ -122,11 +122,11 @@ PASSWORD=<Пароль пользователя>
 
 
 ## 🗨️ Состав команды 
-[Крылов Никита]() - **Backend / DevOps / Lead**
+[Крылов Никита](https://github.com/NikitaKrylov) - **Backend / DevOps / Lead**
 
-[Имран Шокуев]() - **Unity Dev**
+[Имран Шокуев](https://github.com/imka07) - **Unity Dev**
 
-[Данила Бочаров]() - **Unity Dev**
+[Данила Бочаров](https://github.com/Klopi746) - **Unity Dev**
 
 [Тимофей Костров](https://t.me/timkoskos) - **UI / UX**
 
