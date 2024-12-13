@@ -33,7 +33,7 @@
 ## 🖼️ Превью
 
 ### Экраны Web приложения
-<div style="display: grid; grid-template-columns: repeat(2, 1fr)">
+<div style="display: grid; grid-template-columns: repeat(2, auto)">
 <img src="media/start1.png">
 <img src="media/start.png">
 <img src="media/collection.png">
@@ -41,7 +41,7 @@
 </div>
 
 ### Экраны игр
-<div style="display: grid; grid-template-columns: repeat(5, 1fr)">
+<div style="display: grid; grid-template-columns: repeat(5, auto)">
 <img src="media/game1_process.png">
 <img src="media/game2_process.png">
 <img src="media/game_finish.png">
