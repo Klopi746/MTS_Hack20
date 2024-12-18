@@ -136,9 +136,9 @@ PASSWORD=<Пароль пользователя>
 
 [Данила Бочаров](https://github.com/Klopi746) - **Unity Dev**
 
-[Тимофей Костров](https://t.me/timkoskos) - **UI / UX**
+[Тимофей Костров](https://t.me/timkoskos) - **UI / UX / Frontend**
 
-[Андрей Тычинин](https://t.me/timkoskos) - **UI / UX**
+[Андрей Тычинин](https://t.me/timkoskos) - **UI / UX / Frontend**
 
 
 
